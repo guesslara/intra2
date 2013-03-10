@@ -1,3 +1,10 @@
 /*estilos para la plantilla*/
-body{margin:0;font-family:Verdana,Serif;height:100%;position:absolute;}
-
+body{margin:0;font-family:Verdana,Serif;height:100%;width:100%;position:absolute;overflow:hidden;}
+#contenedorPrincipal{border:1px solid #666;width:99.5%;height:99%;margin:2px;}
+#barraSuperior{background:#666;background:url(../img/header-background1.png) repeat-x;border:1px solid #666;height:44px;padding5px;width:100%;color:#FFF;}
+#tituloPrincipal{font-size:18px;float:left;width:auto;padding:10px;}
+#tituloDer{font-size:14px;float:right;width:auto;padding:10px;}
+#contenidoPrincipal{margin:2px;border:1px solid #CCC;width:99.5%;height:91.5%;background:#F0F0F0;}
+#contenedorLogIn{float:left;width:60%;border:1px solid #CCC;background:#FFF;height:92%;margin:5px;}
+#contenedorLogInDer{float:right;width:38%;border:1px solid #CCC;background:#FFF;height:92%;margin:5px;}
+#barraPie{margin:2px;padding:5px;font-size:14px;border:1px solid #CCC;background:#FFF;height:10px;}
