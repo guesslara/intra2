@@ -12,7 +12,12 @@
 		<div id="tituloDer">Ayuda | LogIn</div>
 	</div>
 	<div id="contenidoPrincipal">
-		<div id="contenedorLogIn"></div>
+		<div id="contenedorLogIn">
+			<div id="erroresLogIn">Errores LogIn</div>
+			<div id="contenedorForm">
+
+			</div>
+		</div>
 		<div id="contenedorLogInDer"><br><img src="img/LogoII.gif" width="90%" /></div>
 		<div id="barraPie">Dise&ntilde;ada por Depto. Sistemas IQelectronics 2013&copy;</div>
 	</div>
