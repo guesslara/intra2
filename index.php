@@ -13,8 +13,8 @@
 	</div>
 	<div id="contenidoPrincipal">
 		<div id="contenedorLogIn"></div>
-		<div id="contenedorLogInDer"></div>
-		<div id="barraPie">Hola</div>
+		<div id="contenedorLogInDer"><br><img src="img/LogoII.gif" width="90%" /></div>
+		<div id="barraPie">Dise&ntilde;ada por Depto. Sistemas IQelectronics 2013&copy;</div>
 	</div>
 </div>
 </body>
