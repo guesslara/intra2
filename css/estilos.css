@@ -9,6 +9,6 @@ body{margin:0;font-family:Verdana,Serif;height:100%;width:100%;position:absolute
 #contenedorLogInDer{float:right;width:38%;border:1px solid #CCC;background:#FFF;height:92%;margin:5px;text-align:center;}
 #barraPie{float:left;margin:1px 5px 2px 5px;width:98.3%;padding:5px;font-size:14px;border:1px solid #CCC;background:#FFF;height:17px;text-align:center;font-size:10px;}
 #erroresLogIn{margin:20px 5px 10px 5px;font-size:12px;color:#FF0000;height:15px;padding:15px;text-align:center;border-top:1px solid #CCC;border-bottom:1px solid #CCC;background:#F0F0F0;}
-#contenedorForm{}
+#contenedorForm{text-align:center;}
 
 
