@@ -1,4 +1,5 @@
 <?php
+	session_start();
 ?>
 <html>
 <title>GUI 4</title>
@@ -9,16 +10,14 @@
 	$(document).ready(function(){
 		redimensionarCapas();
 		$("#txtCajaUsuario").focus();
-	});
-	
+	});	
 	function redimensionarCapas(){
 		var altoDoc=$("#contenidoPrincipal").height();
 		var anchoDoc=$("#contenidoPrincipal").width();
 		$("#contenedorLogIn").css("height",(altoDoc-50)+"px");
 		$("#contenedorLogInDer").css("height",(altoDoc-50)+"px");		
 	}
-	window.onresize = redimensionarCapas;
-	
+	window.onresize = redimensionarCapas;	
 	function validacion1(){
 		var validacion=true;
 		var usuario=$("#txtCajaUsuario").val();
@@ -40,7 +39,7 @@
 	</div>
 	<div id="contenidoPrincipal">
 		<div id="contenedorLogIn">
-			<div id="erroresLogIn"><? if(!isset($_GET["error"])) echo "Error: Verifique los Datos de Acceso."; ?></div>
+			<div id="erroresLogIn"><? if(isset($_GET["error"])){echo "<script type='text/javascript'> $('#erroresLogIn').show(); </script>"; echo "Error: Verifique los Datos de Acceso.";} ?></div>
 			<div id="contenedorForm">
 				<form id="frmAcceso" method="post" action="controladorLogin.php" onsubmit="return validacion1()">
 					<div id="tituloDatos">Introduzca su nombre de Usuario y Password</div>
