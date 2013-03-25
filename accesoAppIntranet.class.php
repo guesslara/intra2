@@ -1,5 +1,6 @@
 <?php
     include("clases/clase_mysql.php");
+    include("clases/regLog.php");
     class accesoAppIntranet{
         var $usuarioAcceso;
         var $passAcceso;
@@ -13,10 +14,6 @@
             include("includes/config.inc.php");
             $usuarioAcc=$this->usuarioAcceso;
             $passAcc=$this->passAcceso;
-            /*echo $usuarioAcc;
-            echo "<br>";
-            echo $passAcc;*/
-            
             $mysql = new DB_mysql($db,$servidor,$usuarioDb,$passDb);//se instancia la clase para la BD
             $link = $mysql->conectar();//conexion a la BD
             $sqlA = "SELECT * FROM ".$tablaUsuario." WHERE usuario='".mysql_real_escape_string(strip_tags($usuarioAcc))."'";
@@ -44,6 +41,8 @@
 		$_SESSION[$txtApp['session']['cambiarPassUsuario']]=$valA["cambiarPass"];
 		$_SESSION[$txtApp['session']['sexoUsuario']]=$valA["sexo"];
 		$_SESSION[$txtApp['session']['nominaUsuario']]=$valA["nomina"];
+                $bitacora=new regLog();
+                $bitacora->consulta($valA["usuario"],date("Y-m-d"),date("H:i:s"),$_SERVER['REMOTE_ADDR'],"Acceso Intranet","Pantalla Principal");
                 header("Location: appIntranet.php");
                 exit;
             }

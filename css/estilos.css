@@ -22,3 +22,7 @@ body{margin:0;font-family:Verdana,Serif;height:100%;width:100%;position:absolute
 #divBotonEntrar{height: 40px;padding: 10px;border: 0px solid #CCC;margin:10px;}
 #botonEntrar{height: 40px;width: 120px;}
 #tituloDatos{text-align: left;height: 20px;border-bottom: 1px solid #333;padding: 10px;margin:10px;}
+/********Estilos App Principal*******/
+#contenedorPrincipalApp{height: 92%;background: #FFF;border: 1px solid #CCC;margin: 5px;overflow: auto;}
+#col1{border: 1px solid #CCC;margin: 5px;float: left;width: 71%;height: 97%;}
+#col2{border: 1px solid #CCC;margin: 5px;float: right;width: 300px;height: 97%;background: #f0f0f0;}
