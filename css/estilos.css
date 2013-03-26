@@ -3,8 +3,8 @@ body{margin:0;font-family:Verdana,Serif;height:100%;width:100%;position:absolute
 #contenedorPrincipal{border:1px solid #666;width:99.5%;height:99%;margin:2px;}
 #barraSuperior{background:#666;background:url(../img/header-background1.png) repeat-x;border:1px solid #666;height:44px;padding5px;width:100%;color:#FFF;}
 #tituloPrincipal{font-size:18px;float:left;width:auto;padding:10px;}
-#tituloDer{font-size:14px;float:right;width:auto;padding:10px;}
-#contenidoPrincipal{margin:2px;border:1px solid #CCC;width:99.5%;height:91.5%;background:#F0F0F0;}
+#tituloDer{font-size:12px;float:right;width:auto;padding:0;}
+#contenidoPrincipal{margin:2px;border:1px solid #CCC;width:99.5%;height:93%;background:#F0F0F0;}
 #contenedorLogIn{float:left;width:59%;border:1px solid #CCC;background:#FFF;/*height:92%;*/margin:5px;}
 #contenedorLogInDer{float:right;width:38%;border:1px solid #CCC;background:#FFF;height:92%;margin:5px;text-align:center;}
 #barraPie{float:left;margin:1px 5px 2px 5px;width:98.3%;padding:5px;font-size:14px;border:1px solid #CCC;background:#FFF;height:17px;text-align:center;font-size:10px;}
@@ -23,6 +23,10 @@ body{margin:0;font-family:Verdana,Serif;height:100%;width:100%;position:absolute
 #botonEntrar{height: 40px;width: 120px;}
 #tituloDatos{text-align: left;height: 20px;border-bottom: 1px solid #333;padding: 10px;margin:10px;}
 /********Estilos App Principal*******/
-#contenedorPrincipalApp{height: 92%;background: #FFF;border: 1px solid #CCC;margin: 5px;overflow: auto;}
-#col1{border: 1px solid #CCC;margin: 5px;float: left;width: 71%;height: 97%;}
-#col2{border: 1px solid #CCC;margin: 5px;float: right;width: 300px;height: 97%;background: #f0f0f0;}
+#contenedorPrincipalApp{height: 98.3%;background: #FFF;border: 1px solid #CCC;margin: 5px;overflow: auto;}
+#col1{border: 1px solid #CCC;margin: 5px;float: left;width: 71%;height: 98%;}
+#col2{border: 1px solid #CCC;margin: 5px;float: right;width: 300px;height: 98%;background: #f0f0f0;overflow: auto;}
+/***Estilos para las opciones**/
+.estilosEnlacesOpciones{height: 18px;padding: 3px;width: 100px;border-bottom: 0px solid #333;font-size: 12px;text-align: center;float: left;margin-left: 5px;}
+.estilosEnlacesOpciones:hover{border-bottom: 1px solid #666;cursor: pointer;}
+.estilosEnlacesOpcionesSeleccionado{background: #CCC;height: 18px;padding: 3px;width: 100px;border-bottom: 1px solid #333;font-size: 12px;text-align: center;float: left;margin-left: 5px;font-weight: bold;}

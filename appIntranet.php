@@ -42,19 +42,38 @@
 <div id="contenedorPrincipal">
 	<div id="barraSuperior">
 		<div id="tituloPrincipal">Intranet IQelectronics</div>
-		<div id="tituloDer">Ayuda | Desconectar</div>
+		<div id="tituloDer">
+		    <div style="float: right;margin-top: -2px;"><a href="#"><img src="img/shutdown1.png" border="0"></a></div>
+		    <div style="margin-top: 15px;float: right;"><?=$_SESSION[$txtApp['session']['nombreUsuario']]." ".$_SESSION[$txtApp['session']['apellidoUsuario']];?></div>
+		</div>
 	</div>
 	<div id="contenidoPrincipal">
 		<div id="contenedorPrincipalApp">
-			<div id="col1"><? print_r($_SESSION); ?></div>
+			<div id="col1"><? print_r($_SESSION); ?>
+			    <div style="height: 25px;padding: 5px;background: #e1e1e1;">
+				<div class="estilosEnlacesOpcionesSeleccionado">Texto 1</div>
+				<div class="estilosEnlacesOpciones">Texto 2</div>
+				<div class="estilosEnlacesOpciones">Texto 3</div>
+				<div class="estilosEnlacesOpciones">Texto 4</div>
+				<div class="estilosEnlacesOpciones">Texto 5</div>
+			    </div>
+			    <div id="barraPie">Dise&ntilde;ada por Depto. Sistemas IQelectronics 2013&copy;</div>
+			</div>
                         <div id="col2">
-                            <div id="fotoUsuario" style="width: 265px;margin: 10px auto;height: 350px;background: #FFF;border: 1px solid #e1e1e1;">
-
-                            </div>
-                        </div>
+                            <div id="fotoUsuario" style="width: 265px;margin: 10px auto;height: 350px;background: #FFF;border: 1px solid #e1e1e1;"></div>
+			    <div style=" height: 45%;margin: 5px;border: 0px solid #CCC;font-size: 12px;text-align: left;">
+				<div style="font-size: 14px;margin: 5px;">Usuarios conectados:</div>
+				<div style="margin: 5px;padding:5px;background: #FFF;width: 260px;height: 85%;position: relative;">
+				    
+				</div>
+			    </div>
+                        </div>			
 		</div>
-		<div id="barraPie">Dise&ntilde;ada por Depto. Sistemas IQelectronics 2013&copy;</div>
+		
 	</div>
 </div>
+<!--<div style="position: absolute;bottom: 0;height: 20px;padding: 5px;border: 1px solid #333;background: #CCC;width: 99%;margin: 3px;">
+    <div style="font-size: 10px;border: 1px solid #FF0000;width: 130px;margin-top: 3px;">Personas conectadas...</div>
+</div>-->
 </body>
 </html>
