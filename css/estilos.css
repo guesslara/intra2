@@ -1,4 +1,4 @@
-/*estilos para la plantilla*/
+/*estilos para /*la plantilla*/
 body{margin:0;font-family:Verdana,Serif;height:100%;width:100%;position:absolute;overflow:hidden;}
 #contenedorPrincipal{border:1px solid #666;width:99.5%;height:99%;margin:2px;}
 #barraSuperior{background:#666;background:url(../img/header-background1.png) repeat-x;border:1px solid #666;height:44px;padding5px;width:100%;color:#FFF;}
@@ -24,9 +24,12 @@ body{margin:0;font-family:Verdana,Serif;height:100%;width:100%;position:absolute
 #tituloDatos{text-align: left;height: 20px;border-bottom: 1px solid #333;padding: 10px;margin:10px;}
 /********Estilos App Principal*******/
 #contenedorPrincipalApp{height: 98.3%;background: #FFF;border: 1px solid #CCC;margin: 5px;overflow: auto;}
-#col1{border: 1px solid #CCC;margin: 5px;float: left;width: 71%;height: 98%;}
+#col1{border: 1px solid #CCC;margin: 5px;float: left;width: 70%;height: 98%;}
 #col2{border: 1px solid #CCC;margin: 5px;float: right;width: 300px;height: 98%;background: #f0f0f0;overflow: auto;}
 /***Estilos para las opciones**/
-.estilosEnlacesOpciones{height: 18px;padding: 3px;width: 100px;border-bottom: 0px solid #333;font-size: 12px;text-align: center;float: left;margin-left: 5px;}
-.estilosEnlacesOpciones:hover{border-bottom: 1px solid #666;cursor: pointer;}
-.estilosEnlacesOpcionesSeleccionado{background: #CCC;height: 18px;padding: 3px;width: 100px;border-bottom: 1px solid #333;font-size: 12px;text-align: center;float: left;margin-left: 5px;font-weight: bold;}
+.estilosEnlacesOpciones{height: 18px;padding: 3px;width: auto;border-bottom: 0px solid #333;font-size: 12px;text-align: center;float: left;margin-left: 5px;}
+.estilosEnlacesOpciones:hover{border-bottom: 1px solid #666;cursor: pointer;background: #FFF;}
+.estilosEnlacesOpcionesSeleccionado{background: #CCC;height: 18px;padding: 3px;width: auto;border-bottom: 1px solid #333;font-size: 12px;text-align: center;float: left;margin-left: 5px;font-weight: bold;cursor: pointer;}
+/*Estilos para las opciones de menu*/
+.estiloMenusImg{width: 70px;height: 70px;border: 1px solid #999;margin: 10px;text-align: center;font-size: 10px;background: #CCC;}
+.estiloMenusImg:hover{background: url(img/desv.png) repeat;cursor: pointer;}

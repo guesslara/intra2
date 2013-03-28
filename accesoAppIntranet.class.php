@@ -1,6 +1,7 @@
 <?php
     include("clases/clase_mysql.php");
     include("clases/regLog.php");
+    include("clases/usuarioIntranet.class.php");
     class accesoAppIntranet{
         var $usuarioAcceso;
         var $passAcceso;
@@ -42,8 +43,10 @@
 		$_SESSION[$txtApp['session']['sexoUsuario']]=$valA["sexo"];
 		$_SESSION[$txtApp['session']['nominaUsuario']]=$valA["nomina"];
                 $bitacora=new regLog();
+		$estado=new usuariosIntranet();
                 $bitacora->consulta($valA["usuario"],date("Y-m-d"),date("H:i:s"),$_SERVER['REMOTE_ADDR'],"Acceso Intranet","Pantalla Principal");
-                header("Location: appIntranet.php");
+		$estado->cambiarEstado($valA["ID"]);
+		header("Location: appIntranet.php");
                 exit;
             }
         }

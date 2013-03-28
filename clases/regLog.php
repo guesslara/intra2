@@ -9,7 +9,7 @@ class regLog{
        
     private function conectarBdAcceso(){
 	require("includes/config.inc.php");
-	$link=mysql_connect($host,$usuario,$pass);        
+	$link=mysql_connect($servidor,$usuarioDb,$passDb);        
 	if($link==false){
             echo "Error en la conexion a la base de datos";
         }else{
