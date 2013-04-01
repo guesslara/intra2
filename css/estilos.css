@@ -4,9 +4,10 @@ body{margin:0;font-family:Verdana,Serif;height:100%;width:100%;position:absolute
 #barraSuperior{background:#666;background:url(../img/header-background1.png) repeat-x;border:1px solid #666;height:44px;padding5px;width:100%;color:#FFF;}
 #tituloPrincipal{font-size:18px;float:left;width:auto;padding:10px;}
 #tituloDer{font-size:12px;float:right;width:auto;padding:0;}
+#tituloDer1{font-size:12px;float:right;width:auto;padding:0;margin: 10px 5px 0 0;}
 #contenidoPrincipal{margin:2px;border:1px solid #CCC;width:99.5%;height:93%;background:#F0F0F0;}
-#contenedorLogIn{float:left;width:59%;border:1px solid #CCC;background:#FFF;/*height:92%;*/margin:5px;}
-#contenedorLogInDer{float:right;width:38%;border:1px solid #CCC;background:#FFF;height:92%;margin:5px;text-align:center;}
+#contenedorLogIn{float:left;width:59%;border-right:1px solid #CCC;background:#FFF;/*height:92%;*/margin:5px;}
+#contenedorLogInDer{float:right;width:38%;border:0px solid #CCC;/*background:#FFF;*/height:92%;margin:5px;text-align:center;}
 #barraPie{float:left;margin:1px 5px 2px 5px;width:98.3%;padding:5px;font-size:14px;border:1px solid #CCC;background:#FFF;height:17px;text-align:center;font-size:10px;}
 #erroresLogIn{display: none;margin:20px 5px 10px 5px;font-size:12px;color:#FF0000;height:15px;padding:15px;text-align:left;border-top:1px solid #CCC;border-bottom:1px solid #CCC;background:#F0F0F0;}
 #contenedorForm{text-align:center;}
@@ -23,13 +24,18 @@ body{margin:0;font-family:Verdana,Serif;height:100%;width:100%;position:absolute
 #botonEntrar{height: 40px;width: 120px;}
 #tituloDatos{text-align: left;height: 20px;border-bottom: 1px solid #333;padding: 10px;margin:10px;}
 /********Estilos App Principal*******/
-#contenedorPrincipalApp{height: 98.3%;background: #FFF;border: 1px solid #CCC;margin: 5px;overflow: auto;}
-#col1{border: 1px solid #CCC;margin: 5px;float: left;width: 70%;height: 98%;}
-#col2{border: 1px solid #CCC;margin: 5px;float: right;width: 300px;height: 98%;background: #f0f0f0;overflow: auto;}
+#contenedorPrincipalApp{height: 98.3%;background: #FFF;border: 1px solid #CCC;margin: 3px;overflow: hidden;}
+#col1{border: 1px solid #CCC;margin: 5px;width: 97%;height: 98%;background: #FFF;}
+#col2{border: 1px solid #CCC;margin: 5px;float: right;width: 300px;height: 98%;background: #f0f0f0;overflow: hidden;}
 /***Estilos para las opciones**/
 .estilosEnlacesOpciones{height: 18px;padding: 3px;width: auto;border-bottom: 0px solid #333;font-size: 12px;text-align: center;float: left;margin-left: 5px;}
-.estilosEnlacesOpciones:hover{border-bottom: 1px solid #666;cursor: pointer;background: #FFF;}
-.estilosEnlacesOpcionesSeleccionado{background: #CCC;height: 18px;padding: 3px;width: auto;border-bottom: 1px solid #333;font-size: 12px;text-align: center;float: left;margin-left: 5px;font-weight: bold;cursor: pointer;}
+.estilosEnlacesOpciones:hover{/*border-bottom: 1px solid #666;*/cursor: pointer;background: #FFF;}
+.estilosEnlacesOpcionesSeleccionado{background: #CCC;height: 18px;padding: 3px;width: auto;/*border-bottom: 1px solid #333;*/font-size: 12px;text-align: center;float: left;margin-left: 5px;font-weight: bold;cursor: pointer;}
 /*Estilos para las opciones de menu*/
-.estiloMenusImg{width: 70px;height: 70px;border: 1px solid #999;margin: 10px;text-align: center;font-size: 10px;background: #CCC;}
+.estiloMenusImg{float: left;width: 90px;height: 98px;border: 1px solid #999;text-align: center;font-size: 10px;background: #CCC;}
 .estiloMenusImg:hover{background: url(img/desv.png) repeat;cursor: pointer;}
+.opcionesCuadroImgMenu{border: 1px solid #FFF;width: 365px;height: 100px;float: left;margin: 10px;}
+.opcionesCuadroImgMenu:hover{border: 1px solid #CCC;background: #e1e1e1;cursor: pointer;font-weight: bold;}
+.opcionesCuadroTituloImgMenu{border: 1px solid #000;float: left;margin: 15px;font-size: 12px;}
+.usuariosConectadosActual{border-bottom:1px solid #CCC;height:15px;padding:5px;font-size:10px;margin:0;}
+.usuariosConectadosActual:hover{background: #f0f0f0;}

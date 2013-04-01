@@ -19,7 +19,7 @@
                 echo "( 0 ) usuarios conectados.";
             }else{
                 while($rowCon=mysql_fetch_array($resCon)){
-                    echo "<div style='height:15px;padding:5px;font-size:10px;margin:5px;'>".$rowCon["usuario"]."</div>";
+                    echo "<div class='usuariosConectadosActual'><div style='float:left;width:65%;border:0px solid #CCC;'>".$rowCon["usuario"]."</div><div style='float:right;width:20%;border:0px solid #CCC;font-size:10px;text-align:center;'>Mensaje</div></div>";
                 }
             }
         }
