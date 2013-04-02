@@ -22,6 +22,13 @@
         case "listarUsuariosConectados":
             listarUsuariosConectados($_POST["usuarioActual"]);
         break;
+        case "guardarMensaje":
+            guardarMensaje($_POST["mensaje"],$_POST["paraUsuario"]);
+        break;
+    }
+    
+    function guardarMensaje($mensaje,$destinatario){
+        $estadoUsuario=new usuariosIntranet();        
     }
     
     function listarUsuariosConectados($usuarioActual){

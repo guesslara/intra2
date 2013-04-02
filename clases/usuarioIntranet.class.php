@@ -12,6 +12,16 @@
             }				
         }
         
+        public function guardarMensaje($mensaje,$destinatario){
+            $sqlM="INSERT INTO mensajes (mensaje,hora,fecha,status,destinatario) VALUES ('".$mensaje."','".date("H:i:s")."','".date("Y-m-d")."','Nuevo','".$destinatario."')";
+            $resM=mysql_query($sqlM,$this->conectarBdAcceso());
+            if($resM){
+                echo "<script type='text/javascript'> aletr('Mensaje Enviado'); </script>";
+            }else{
+                echo "<script type='text/javascript'> aletr('Error al Enviar el Mensaje'); </script>";
+            }
+        }
+        
         public function verUsuariosConectados($usuarioActual){
             $sqlCon="SELECT * FROM usuariosAcceso WHERE conectado=1 AND usuario != '".$usuarioActual."'";
             $resCon=mysql_query($sqlCon,$this->conectarBdAcceso());

@@ -22,14 +22,7 @@ function colocarFocusElemento(elemento){
     for(i=0;i<elementos.length;i++){
         $("#"+elementos[i]).removeClass("estilosEnlacesOpcionesSeleccionado");
         $("#"+elementos[i]).addClass("estilosEnlacesOpciones");
-    }
-    /*$("#Accesos").addClass("estilosEnlacesOpciones");
-    $("#Administrativas").addClass("estilosEnlacesOpciones");
-    $("#Operativas").addClass("estilosEnlacesOpciones");
-    $("#Utilerias").addClass("estilosEnlacesOpciones");
-    $("#Cursos").addClass("estilosEnlacesOpciones");
-    $("#Directorio").addClass("estilosEnlacesOpciones");
-    $("#"+elemento).removeClass("estilosEnlacesOpciones");*/
+    }    
     $("#"+elemento).addClass("estilosEnlacesOpcionesSeleccionado");
 }
 function accionesEnlaces(accion){
@@ -47,4 +40,13 @@ function enviarMensaje(usuarioEnviar){
 }
 function cancelarMensaje(){
     $("#capaMensaje").hide();
+}
+function enviarMensajeUsuario(){
+    var mensaje=$("#txtCapaMensaje").val();
+    var paraUsuario1=$("#paraUsuario1").val();
+    if(mensaje=="" || mensaje == null){
+        alert("Error escriba un mensaje para Enviar");
+    }else{
+        ajaxApp("usuariosConectados","funciones.php","action=guardarMensaje&mensaje="+mensaje+"&paraUsuario="+paraUsuario1,"POST");
+    }
 }

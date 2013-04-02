@@ -2,11 +2,15 @@
 	session_start();
 	session_regenerate_id(true);
 	include("includes/txtApp.php");
+	include("clases/usuarioIntranet.class.php");
 	//include("../../clases/regLog.php");
 	//$objLog=new regLog();
 	//$objLog->consulta($_SESSION[$txtApp['session']['loginUsuario']],date("Y-m-d"),date("H:i:s"),$_SERVER['REMOTE_ADDR'],"ASIGNACIONES",$_SESSION[$txtApp['session']['origenSistemaUsuario']]);
 	if(!isset($_SESSION[$txtApp['session']['idUsuario']])){
-	    echo "<script type='text/javascript'> alert('Su sesion ha terminado por inactividad'); </script>";
+		//se actualiza el estado del usuario
+		$objUsuario=new usuariosIntranet();
+		$objUsuario->cambiarEstadoInactivo($_SESSION[$txtApp['session']['idUsuario']]);	
+	    //echo "<script type='text/javascript'> alert('Su sesion ha terminado por inactividad');</script>";
 	    //exit;
 	}else{
 		header("Location: appIntranet.php");
