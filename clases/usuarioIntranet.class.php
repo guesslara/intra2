@@ -16,7 +16,7 @@
             $sqlCon="SELECT * FROM usuariosAcceso WHERE conectado=1 AND usuario != '".$usuarioActual."'";
             $resCon=mysql_query($sqlCon,$this->conectarBdAcceso());
             if(mysql_num_rows($resCon)==0){
-                echo "( 0 ) usuarios conectados.";
+                echo "Ningun usuario conectado.";
             }else{
                 while($rowCon=mysql_fetch_array($resCon)){
                     echo "<div class='usuariosConectadosActual'><div style='float:left;width:65%;border:0px solid #CCC;'>".$rowCon["usuario"]."</div><div style='float:right;width:20%;border:0px solid #CCC;font-size:8px;text-align:center;' onclick='enviarMensaje(\"".$rowCon["usuario"]."\")'>Mensaje</div></div>";

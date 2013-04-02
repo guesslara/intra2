@@ -89,8 +89,19 @@
 <!--<div style="position: absolute;bottom: 0;height: 20px;padding: 5px;border: 1px solid #333;background: #CCC;width: 99%;margin: 3px;">
     <div style="font-size: 10px;border: 1px solid #FF0000;width: 130px;margin-top: 3px;">Personas conectadas...</div>
 </div>-->
-<div style="position: absolute;width: 100%;height: 100%;background: url(img/desv.png) repeat;z-index: 9999999999;">
-    
+<div id="capaMensaje" style="position: absolute;width: 100%;height: 100%;background: url(img/desv.png) repeat;z-index: 9999999999;top: 0;">
+    <div style="border: 1px solid #666;position: relative;width: 400px;height: 250px;left: 50%;top: 50%;margin-left: -200px;margin-top: -125px;">
+        <div style="height: 15px;padding: 5px;width: 390px;background: #222;font-size: 12px;color: #FFF;">Enviar Mensaje...</div>
+        <div style="background: #FFF;width: 400px;height: 224px;overflow: auto;">
+            <div style="margin: 10px;font-size: 12px;">Para:&nbsp;<span id="paraUsuario"></span></div>
+            <textarea name="" id="" rows="4" cols="50" style="margin: 10px;"></textarea>
+            <hr style="background: #CCC;width: 96%;">
+            <div style="margin: 10px;text-align: right;">
+                <input type="button" name="" id="" value="Cancelar" onclick="cancelarMensaje()">
+                <input type="button" name="" id="" value="Enviar Mensaje">
+            </div>
+        </div>
+    </div>
 </div>
 <script type="text/javascript">
     setInterval(verificarUsuariosConectados,10000);

@@ -41,5 +41,10 @@ function verificarUsuariosConectados(){
     ajaxApp("usuariosConectados","funciones.php","action=listarUsuariosConectados&usuarioActual="+usuarioActual,"POST");
 }
 function enviarMensaje(usuarioEnviar){
-    alert(usuarioEnviar);
+    //alert(usuarioEnviar);
+    $("#capaMensaje").show();
+    $("#paraUsuario").html(usuarioEnviar);
+}
+function cancelarMensaje(){
+    $("#capaMensaje").hide();
 }
