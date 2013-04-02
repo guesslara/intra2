@@ -20,13 +20,13 @@
             verDirectorio();
         break;
         case "listarUsuariosConectados":
-            listarUsuariosConectados();
+            listarUsuariosConectados($_POST["usuarioActual"]);
         break;
     }
     
-    function listarUsuariosConectados(){
+    function listarUsuariosConectados($usuarioActual){
         $estadoUsuario=new usuariosIntranet();
-        $estadoUsuario->verUsuariosConectados();
+        $estadoUsuario->verUsuariosConectados($usuarioActual);
     }
     
     function verDirectorio(){
@@ -118,7 +118,7 @@
 ?>
         <div class="opcionesCuadroImgMenu">
             <div class="estiloMenusImg">Opcion 1</div>
-            <div class="opcionesCuadroTituloImgMenu">Inventario de Productos</div>
+            <div class="opcionesCuadroTituloImgMenu">Inventario de Productos</div>            
         </div>
         <div class="opcionesCuadroImgMenu">
             <div class="estiloMenusImg">Opcion 2</div>

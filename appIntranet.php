@@ -6,7 +6,7 @@
     //$objLog=new regLog();
     //$objLog->consulta($_SESSION[$txtApp['session']['loginUsuario']],date("Y-m-d"),date("H:i:s"),$_SERVER['REMOTE_ADDR'],"ASIGNACIONES",$_SESSION[$txtApp['session']['origenSistemaUsuario']]);
     if(!isset($_SESSION[$txtApp['session']['idUsuario']])){
-	echo "<script type='text/javascript'> alert('Su sesion ha terminado por inactividad'); window.location.href='index.php'; </script>";
+	echo "<script type='text/javascript'> alert('Su sesion ha terminado por inactividad'); window.location.href='cerrar_sesion.php'; </script>";
 	exit;
     }
     //se arma la foto
@@ -47,11 +47,12 @@
 </script>
 </head>
 <body>
+<input type="hidden" name="txtUsuarioActual" id="txtUsuarioActual" value="<?=$_SESSION[$txtApp['session']['loginUsuario']];?>">
 <div id="contenedorPrincipal">
 	<div id="barraSuperior">
 		<div id="tituloPrincipal">Intranet IQelectronics</div>
 		<div id="tituloDer">
-		    <div style="float: right;margin-top: -2px;"><a href="#"><img src="img/shutdown1.png" border="0"></a></div>
+		    <div style="float: right;margin-top: -2px;"><a href="cerrar_sesion.php"><img src="img/shutdown1.png" border="0"></a></div>
 		    <div style="margin-top: 15px;float: right;"><?=$_SESSION[$txtApp['session']['nombreUsuario']]." ".$_SESSION[$txtApp['session']['apellidoUsuario']];?></div>
 		</div>
 	</div>
@@ -74,7 +75,7 @@
                                 <div id="fotoUsuario" style="width: 250px;margin: 10px auto;height: 300px;background: #FFF;border: 1px solid #e1e1e1;"></div>
                                 <div style=" height: 45%;margin: 10px;border: 0px solid #CCC;font-size: 12px;text-align: left;">
                                     <div style="font-size: 14px;margin: 5px;">Usuarios conectados:</div>
-                                    <div id="usuariosConectados" style="margin: 10px;padding:5px;background: #FFF;width: 240px;height: 80%;position: relative;">
+                                    <div id="usuariosConectados" style="margin: 10px;padding:5px;background: #FFF;width: 240px;height: 80%;position: relative;overflow: auto;">
 				    
                                     </div>
                                 </div>
@@ -88,5 +89,11 @@
 <!--<div style="position: absolute;bottom: 0;height: 20px;padding: 5px;border: 1px solid #333;background: #CCC;width: 99%;margin: 3px;">
     <div style="font-size: 10px;border: 1px solid #FF0000;width: 130px;margin-top: 3px;">Personas conectadas...</div>
 </div>-->
+<div style="position: absolute;width: 100%;height: 100%;background: url(img/desv.png) repeat;z-index: 9999999999;">
+    
+</div>
+<script type="text/javascript">
+    setInterval(verificarUsuariosConectados,10000);
+</script>
 </body>
 </html>

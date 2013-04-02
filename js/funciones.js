@@ -37,5 +37,9 @@ function accionesEnlaces(accion){
     colocarFocusElemento(accion);
 }
 function verificarUsuariosConectados(){
-    ajaxApp("usuariosConectados","funciones.php","action=listarUsuariosConectados","POST");
+    var usuarioActual=$("#txtUsuarioActual").val();
+    ajaxApp("usuariosConectados","funciones.php","action=listarUsuariosConectados&usuarioActual="+usuarioActual,"POST");
+}
+function enviarMensaje(usuarioEnviar){
+    alert(usuarioEnviar);
 }
