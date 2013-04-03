@@ -26,6 +26,7 @@
 		colocarFocusElemento("Accesos");
 		accionesEnlaces("Accesos");
 		verificarUsuariosConectados();
+		verificaMensajesNuevos();
 	});	
 	function redimensionarCapas(){
 		var altoDoc=$("#contenedorPrincipal").height();
@@ -74,7 +75,8 @@
                             <div id="col2">
                                 <div id="fotoUsuario" style="width: 250px;margin: 10px auto;height: 300px;background: #FFF;border: 1px solid #e1e1e1;"></div>
                                 <div style=" height: 45%;margin: 10px;border: 0px solid #CCC;font-size: 12px;text-align: left;">
-                                    <div style="font-size: 14px;margin: 5px;">Usuarios conectados:</div>
+				    <div style="font-size: 12px;margin: 10px;border: 1px solid #CCC;width: 240px;height: 15px;padding: 5px;">Mensaje(s) Nuevo(s)<span id="msgNuevosUsuario"></span></div>
+                                    <div style="font-size: 12px;margin: 10px;">Usuarios conectados:</div>				    
                                     <div id="usuariosConectados" style="margin: 10px;padding:5px;background: #FFF;width: 240px;height: 80%;position: relative;overflow: auto;">
 				    
                                     </div>
@@ -91,19 +93,20 @@
 <div id="capaMensaje">
     <div class="estiloCapaMensaje">
         <div class="mensajeCapa">Enviar Mensaje...</div>
-        <div class="estiloCapaMensaje">
-            <div class="estiloPara">Para:&nbsp;<span id="paraUsuario"></span><input type="hidden" name="paraUsuario1" id="paraUsuario1"></div>
+	<div class="estiloCapaMensaje1">
+	    <div class="estiloPara">Para:&nbsp;<span id="paraUsuario"></span><input type="hidden" name="paraUsuarioOculto" id="paraUsuarioOculto"</div>
             <textarea name="txtCapaMensaje" id="txtCapaMensaje" rows="4" cols="45" style="margin: 10px;"></textarea>
             <hr style="background: #CCC;width: 96%;">
             <div style="margin: 10px;text-align: right;">
                 <input type="button" value="Cancelar" onclick="cancelarMensaje()">
                 <input type="button" value="Enviar Mensaje" onclick="enviarMensajeUsuario()">
             </div>
-        </div>
+	</div>
     </div>
 </div>
 <script type="text/javascript">
     setInterval(verificarUsuariosConectados,10000);
+    setInterval(verificaMensajesNuevos,10000);
 </script>
 </body>
 </html>

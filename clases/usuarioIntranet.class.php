@@ -12,13 +12,24 @@
             }				
         }
         
+        public function buscarNuevosMsg($usuarioMsg){
+            $sqlN="SELECT COUNT(*) AS totalN FROM mensajes WHERE status='Nuevo' AND destinatario='".$usuarioMsg."'";
+            $resN=mysql_query($sqlN,$this->conectarBdAcceso());
+            $rowN=mysql_fetch_array($resN);
+            if($resN){
+                echo "<div style='width:auto;background:#FF0000;color:#FFF;float:left;margin-right:5px;font-weight:bold;'>".$rowN["totalN"]."</div>";
+            }else{
+                echo "Error";
+            }
+        }
+        
         public function guardarMensaje($mensaje,$destinatario){
             $sqlM="INSERT INTO mensajes (mensaje,hora,fecha,status,destinatario) VALUES ('".$mensaje."','".date("H:i:s")."','".date("Y-m-d")."','Nuevo','".$destinatario."')";
             $resM=mysql_query($sqlM,$this->conectarBdAcceso());
             if($resM){
-                echo "<script type='text/javascript'> aletr('Mensaje Enviado'); </script>";
+                echo "<script type='text/javascript'> alert('Mensaje Enviado'); cancelarMensaje(); </script>";
             }else{
-                echo "<script type='text/javascript'> aletr('Error al Enviar el Mensaje'); </script>";
+                echo "<script type='text/javascript'> alert('Error al Enviar el Mensaje');  </script>";
             }
         }
         

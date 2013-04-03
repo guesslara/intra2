@@ -25,10 +25,19 @@
         case "guardarMensaje":
             guardarMensaje($_POST["mensaje"],$_POST["paraUsuario"]);
         break;
+        case "buscarNuevosMensajes":
+            buscarNuevosMensajes($_POST["usuarioMsg"]);
+        break;
+    }
+    
+    function buscarNuevosMensajes($usuarioMsg){
+        $estadoUsuario=new usuariosIntranet();
+        $estadoUsuario->buscarNuevosMsg($usuarioMsg);
     }
     
     function guardarMensaje($mensaje,$destinatario){
-        $estadoUsuario=new usuariosIntranet();        
+        $estadoUsuario=new usuariosIntranet();
+        $estadoUsuario->guardarMensaje($mensaje,$destinatario);
     }
     
     function listarUsuariosConectados($usuarioActual){
@@ -92,32 +101,28 @@
 ?>
         <div class="opcionesCuadroImgMenu">
             <div class="estiloMenusImg">Opcion 1</div>
-            <div class="opcionesCuadroTituloImgMenu"></div>
+            <div class="opcionesCuadroTituloImgMenu">Almac&eacute;n</div>
         </div>
         <div class="opcionesCuadroImgMenu">
             <div class="estiloMenusImg">Opcion 2</div>
-            <div class="opcionesCuadroTituloImgMenu"></div>
+            <div class="opcionesCuadroTituloImgMenu">Compras</div>
         </div>
         <div class="opcionesCuadroImgMenu">
             <div class="estiloMenusImg">Opcion 3</div>
-            <div class="opcionesCuadroTituloImgMenu"></div>
+            <div class="opcionesCuadroTituloImgMenu">Planeaci&oacute;n Financiera</div>
         </div>
         <div class="opcionesCuadroImgMenu">
             <div class="estiloMenusImg">Opcion 4</div>
-            <div class="opcionesCuadroTituloImgMenu"></div>
+            <div class="opcionesCuadroTituloImgMenu">ISO</div>
         </div>
         <div class="opcionesCuadroImgMenu">
             <div class="estiloMenusImg">Opcion 5</div>
-            <div class="opcionesCuadroTituloImgMenu"></div>
+            <div class="opcionesCuadroTituloImgMenu">Facturaci&oacute;n</div>
         </div>
         <div class="opcionesCuadroImgMenu">
             <div class="estiloMenusImg">Opcion 6</div>
-            <div class="opcionesCuadroTituloImgMenu"></div>
-        </div>
-        <div class="opcionesCuadroImgMenu">
-            <div class="estiloMenusImg">Opcion 7</div>
-            <div class="opcionesCuadroTituloImgMenu"></div>
-        </div>
+            <div class="opcionesCuadroTituloImgMenu">Cuentas por Pagar</div>
+        </div>        
 <?        
     }
     
@@ -129,18 +134,23 @@
         </div>
         <div class="opcionesCuadroImgMenu">
             <div class="estiloMenusImg">Opcion 2</div>
+            <div class="opcionesCuadroTituloImgMenu">Productos en Cosm&eacute;tica</div>
         </div>
         <div class="opcionesCuadroImgMenu">
             <div class="estiloMenusImg">Opcion 3</div>
+            <div class="opcionesCuadroTituloImgMenu">Requisiciones de Compra</div>
         </div>
         <div class="opcionesCuadroImgMenu">
             <div class="estiloMenusImg">Opcion 4</div>
+            <div class="opcionesCuadroTituloImgMenu">&Oacute;rdenes de Servicio</div>
         </div>
         <div class="opcionesCuadroImgMenu">
             <div class="estiloMenusImg">Opcion 5</div>
+            <div class="opcionesCuadroTituloImgMenu">Correo Corporativo</div>
         </div>    
         <div class="opcionesCuadroImgMenu">
             <div class="estiloMenusImg">Opcion 6</div>
+            <div class="opcionesCuadroTituloImgMenu">Accesos Sistemas</div>
         </div>
 <?
     }

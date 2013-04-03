@@ -37,16 +37,22 @@ function enviarMensaje(usuarioEnviar){
     //alert(usuarioEnviar);
     $("#capaMensaje").show();
     $("#paraUsuario").html(usuarioEnviar);
+    $("#txtCapaMensaje").html("");
+    $("#paraUsuarioOculto").attr("value",usuarioEnviar);
 }
 function cancelarMensaje(){
     $("#capaMensaje").hide();
 }
 function enviarMensajeUsuario(){
     var mensaje=$("#txtCapaMensaje").val();
-    var paraUsuario1=$("#paraUsuario1").val();
+    var paraUsuario1=$("#paraUsuarioOculto").val();
     if(mensaje=="" || mensaje == null){
         alert("Error escriba un mensaje para Enviar");
     }else{
         ajaxApp("usuariosConectados","funciones.php","action=guardarMensaje&mensaje="+mensaje+"&paraUsuario="+paraUsuario1,"POST");
     }
+}
+function verificaMensajesNuevos(){
+    var usuarioMsg=$("#txtUsuarioActual").val();
+    ajaxApp("msgNuevosUsuario","funciones.php","action=buscarNuevosMensajes&usuarioMsg="+usuarioMsg,"POST");
 }
