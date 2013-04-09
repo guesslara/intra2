@@ -46,6 +46,8 @@
 		$estado=new usuariosIntranet();
                 $bitacora->consulta($valA["usuario"],date("Y-m-d"),date("H:i:s"),$_SERVER['REMOTE_ADDR'],"Acceso Intranet","Pantalla Principal");
 		$estado->cambiarEstado($valA["ID"]);
+                //se envia la cookie
+                setcookie("usuarioIntranet", $valA["ID"], time()+3600);
 		header("Location: appIntranet.php");
                 exit;
             }

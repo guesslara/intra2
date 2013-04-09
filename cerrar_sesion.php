@@ -4,7 +4,11 @@
 	include("clases/usuarioIntranet.class.php");
 	//se actualiza el estado del usuario
 	$objUsuario=new usuariosIntranet();
-	$objUsuario->cambiarEstadoInactivo($_SESSION[$txtApp['session']['idUsuario']]);	
+	$objUsuario->cambiarEstadoInactivo($_COOKIE["usuarioIntranet"]);
+	//se recupera la cookie enviada
+	$idUsuarioCookie=$_COOKIE["usuarioIntranet"];
+	setcookie("usuarioIntranet", $_SESSION[$txtApp['session']['idUsuario']], time()-3600);
+	
 	unset($txtApp['session']['name']);	
 	unset($txtApp['session']['nivelUsuario']);
 	unset($txtApp['session']['loginUsuario']);

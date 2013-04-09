@@ -38,6 +38,7 @@ function enviarMensaje(usuarioEnviar){
     $("#capaMensaje").show();
     $("#paraUsuario").html(usuarioEnviar);
     $("#txtCapaMensaje").html("");
+    $("#txtCapaMensaje").attr("value","");
     $("#paraUsuarioOculto").attr("value",usuarioEnviar);
 }
 function cancelarMensaje(){
@@ -46,13 +47,18 @@ function cancelarMensaje(){
 function enviarMensajeUsuario(){
     var mensaje=$("#txtCapaMensaje").val();
     var paraUsuario1=$("#paraUsuarioOculto").val();
+    var deUsuario=$("#txtUsuarioActual").val();
     if(mensaje=="" || mensaje == null){
         alert("Error escriba un mensaje para Enviar");
     }else{
-        ajaxApp("usuariosConectados","funciones.php","action=guardarMensaje&mensaje="+mensaje+"&paraUsuario="+paraUsuario1,"POST");
+        ajaxApp("usuariosConectados","funciones.php","action=guardarMensaje&mensaje="+mensaje+"&paraUsuario="+paraUsuario1+"&deUsuario="+deUsuario,"POST");
     }
 }
 function verificaMensajesNuevos(){
     var usuarioMsg=$("#txtUsuarioActual").val();
     ajaxApp("msgNuevosUsuario","funciones.php","action=buscarNuevosMensajes&usuarioMsg="+usuarioMsg,"POST");
+}
+function mostrarCapaVistaMensajes(){
+    var usuarioMsg=$("#txtUsuarioActual").val();
+    ajaxApp("contenidoAppPrincipal","funciones.php","action=verPanelMensajes&usuarioMsg="+usuarioMsg,"POST");
 }

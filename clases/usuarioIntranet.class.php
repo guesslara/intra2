@@ -12,19 +12,44 @@
             }				
         }
         
+        public function verPanelMsg($usuarioMsg){
+            //se extraen los msg
+            $sqlM="SELECT * FROM mensajes WHERE destinatario='".$usuarioMsg."'";
+            $resM=mysql_query($sqlM,$this->conectarBdAcceso());
+            if(mysql_num_rows($resM)==0){
+                echo "( 0 ) Mensajes";
+            }else{              
+?>
+                    <div class="contenedorMsgs">
+                        <span class="tituloListadoMsgs">Listado de Mensajes:</span><br><br>
+<?
+                while($rowM=mysql_fetch_array($resM)){
+?>
+                        <div class="msgListadoUsuario">
+                            <div class="msgListadoDe">De:</div><div class="msgListadoDeBase"><?=$rowM["de"];?></div><div style="clear: both;"></div>
+                            <div class="msgListadoFecha">Fecha de Envio:</div><div class="msgListadoFechaBase"><?=$rowM["fecha"]." -- ".$rowM["hora"];?></div><div class="btnVerMsg">Ver Mensaje</div>
+                        </div>
+<?
+                }
+?>
+                    </div>
+<?
+            }
+        }
+        
         public function buscarNuevosMsg($usuarioMsg){
             $sqlN="SELECT COUNT(*) AS totalN FROM mensajes WHERE status='Nuevo' AND destinatario='".$usuarioMsg."'";
             $resN=mysql_query($sqlN,$this->conectarBdAcceso());
             $rowN=mysql_fetch_array($resN);
             if($resN){
-                echo "<div style='width:auto;background:#FF0000;color:#FFF;float:left;margin-right:5px;font-weight:bold;'>".$rowN["totalN"]."</div>";
+                echo "<div class='estiloContadorMensajesNuevos'>".$rowN["totalN"]."</div>";
             }else{
                 echo "Error";
             }
         }
         
-        public function guardarMensaje($mensaje,$destinatario){
-            $sqlM="INSERT INTO mensajes (mensaje,hora,fecha,status,destinatario) VALUES ('".$mensaje."','".date("H:i:s")."','".date("Y-m-d")."','Nuevo','".$destinatario."')";
+        public function guardarMensaje($mensaje,$destinatario,$deUsuario){
+            $sqlM="INSERT INTO mensajes (mensaje,hora,fecha,status,destinatario,de) VALUES ('".$mensaje."','".date("H:i:s")."','".date("Y-m-d")."','Nuevo','".$destinatario."','".$deUsuario."')";
             $resM=mysql_query($sqlM,$this->conectarBdAcceso());
             if($resM){
                 echo "<script type='text/javascript'> alert('Mensaje Enviado'); cancelarMensaje(); </script>";

@@ -75,7 +75,7 @@
                             <div id="col2">
                                 <div id="fotoUsuario" style="width: 250px;margin: 10px auto;height: 300px;background: #FFF;border: 1px solid #e1e1e1;"></div>
                                 <div style=" height: 45%;margin: 10px;border: 0px solid #CCC;font-size: 12px;text-align: left;">
-				    <div style="font-size: 12px;margin: 10px;border: 1px solid #CCC;width: 240px;height: 15px;padding: 5px;">Mensaje(s) Nuevo(s)<span id="msgNuevosUsuario"></span></div>
+				    <div style="font-size: 12px;margin: 10px;border: 1px solid #CCC;width: 240px;height: 20px;padding: 5px;">&nbsp;<a href="#" onclick="mostrarCapaVistaMensajes()" style="color: blue;text-decoration: none;">Ver Mensaje(s)</a><span id="msgNuevosUsuario"></span></div>
                                     <div style="font-size: 12px;margin: 10px;">Usuarios conectados:</div>				    
                                     <div id="usuariosConectados" style="margin: 10px;padding:5px;background: #FFF;width: 240px;height: 80%;position: relative;overflow: auto;">
 				    
@@ -90,6 +90,10 @@
 <!--<div style="position: absolute;bottom: 0;height: 20px;padding: 5px;border: 1px solid #333;background: #CCC;width: 99%;margin: 3px;">
     <div style="font-size: 10px;border: 1px solid #FF0000;width: 130px;margin-top: 3px;">Personas conectadas...</div>
 </div>-->
+<div id="capaMensajesPanel" style="display: block;position: absolute;width: 100%;height: 100%;background: url(img/desv.png) repeat;z-index: 10000000000;">
+    HOLA
+</div>
+
 <div id="capaMensaje">
     <div class="estiloCapaMensaje">
         <div class="mensajeCapa">Enviar Mensaje...</div>
@@ -104,6 +108,7 @@
 	</div>
     </div>
 </div>
+
 <script type="text/javascript">
     setInterval(verificarUsuariosConectados,10000);
     setInterval(verificaMensajesNuevos,10000);

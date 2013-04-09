@@ -23,11 +23,19 @@
             listarUsuariosConectados($_POST["usuarioActual"]);
         break;
         case "guardarMensaje":
-            guardarMensaje($_POST["mensaje"],$_POST["paraUsuario"]);
+            guardarMensaje($_POST["mensaje"],$_POST["paraUsuario"],$_POST["deUsuario"]);
         break;
         case "buscarNuevosMensajes":
             buscarNuevosMensajes($_POST["usuarioMsg"]);
         break;
+        case "verPanelMensajes":
+            verPanelMsg($_POST["usuarioMsg"]);
+        break;
+    }
+    
+    function verPanelMsg($usuarioMsg){
+        $estadoUsuario=new usuariosIntranet();
+        $estadoUsuario->verPanelMsg($usuarioMsg);
     }
     
     function buscarNuevosMensajes($usuarioMsg){
@@ -35,9 +43,9 @@
         $estadoUsuario->buscarNuevosMsg($usuarioMsg);
     }
     
-    function guardarMensaje($mensaje,$destinatario){
+    function guardarMensaje($mensaje,$destinatario,$deUsuario){
         $estadoUsuario=new usuariosIntranet();
-        $estadoUsuario->guardarMensaje($mensaje,$destinatario);
+        $estadoUsuario->guardarMensaje($mensaje,$destinatario,$deUsuario);
     }
     
     function listarUsuariosConectados($usuarioActual){
@@ -127,6 +135,7 @@
     }
     
     function verAccesosRapidos(){
+        //print_r($_COOKIE);
 ?>
         <div class="opcionesCuadroImgMenu">
             <div class="estiloMenusImg">Opcion 1</div>

@@ -45,3 +45,15 @@ body{margin:0;font-family:Verdana,Serif;height:100%;width:100%;position:absolute
 .mensajeCapa{height: 15px;padding: 5px;width: 390px;background: #222;font-size: 12px;color: #FFF;}
 .estiloCapaMensaje1{background: #FFF;width: 400px;height: 224px;overflow: auto;}
 .estiloPara{margin: 10px;font-size: 12px;}
+.estiloContadorMensajesNuevos{width:30px;height: 15px;padding: 3px;background:#FF0000;color:#FFF;float:left;margin-right:5px;font-weight:bold;text-align: center;}
+/*listado de mensajes*/
+.contenedorMsgs{border: 0px solid #FF0000;}
+.tituloListadoMsgs{font-size: 12px;}
+.msgListadoUsuario{border: 1px solid #CCC;height: 53px;padding: 5px;font-size: 12px;margin: 5px;}
+.msgListadoUsuario:hover{background: #f0f0f0;}
+.msgListadoDe{height: 15px;padding: 5px;font-size: 10px;width: 90px;border: 0px solid #FF0000;float: left;}
+.msgListadoFecha{height: 15px;padding: 5px;font-size: 10px;width: 90px;border: 0px solid #FF0000;float: left;}
+.msgListadoDeBase{margin-left: 5px;height: 15px;padding: 5px;border: 0px solid #FF0000;float: left;width: 60%;}
+.msgListadoFechaBase{width: 160px;margin-left: 5px;height: 15px;padding: 5px;border: 0px solid #FF0000;float: left;text-align: left;}
+.btnVerMsg{margin-left: 50px;float: left;border: 1px solid #F0F0F0;height: 15px;padding: 5px;}
+.btnVerMsg:hover{background: #e1e1e1;border: 1px solid #333;cursor: pointer;}
