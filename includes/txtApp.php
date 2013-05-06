@@ -12,7 +12,10 @@
 	$txtApp['session']['origenSistemaUsuarioNombre'] = "origenIntranetPrincipal";
 	$txtApp['session']['cambiarPassUsuario'] = "cambiarPassUsuarioAI";
 	$txtApp['session']['sexoUsuario'] = "sexoUsuarioAI";
-	$txtApp['session']['nominaUsuario'] = "nominaUsuarioAI";	
+	$txtApp['session']['nominaUsuario'] = "nominaUsuarioAI";
+	//nombre de la cookie en el logIn
+	$txtApp['session']['cookieApp'] = "usuarioIntranetAI";
+	$txtApp['session']['cookieAppValor'] = "usuarioIntranetAIValor";
 	//login de usuarios
 	$txtApp['login']['tituloAppTitle'] = "IQe. Sisco Matriz Productiva";
 	$txtApp['login']['tituloAppPrincipal'] = "IQe. Sisco - Matriz Productiva";

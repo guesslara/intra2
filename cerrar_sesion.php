@@ -2,12 +2,13 @@
 	session_start();
 	include("includes/txtApp.php");
 	include("clases/usuarioIntranet.class.php");
+	include("clases/cookieUtils.php");
+	$cookieSC=new CookieUtils();
 	//se actualiza el estado del usuario
 	$objUsuario=new usuariosIntranet();
-	$objUsuario->cambiarEstadoInactivo($_COOKIE["usuarioIntranet"]);
-	//se recupera la cookie enviada
-	$idUsuarioCookie=$_COOKIE["usuarioIntranet"];
-	setcookie("usuarioIntranet", $_SESSION[$txtApp['session']['idUsuario']], time()-3600);
+	$objUsuario->cambiarEstadoInactivo($_COOKIE[$txtApp['session']['cookieApp']]);
+	//se elimina la cookie
+	$cookieSC->delete($txtApp['session']['cookieApp']);
 	
 	unset($txtApp['session']['name']);	
 	unset($txtApp['session']['nivelUsuario']);

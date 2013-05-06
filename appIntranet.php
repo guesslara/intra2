@@ -2,6 +2,9 @@
     session_start();
     session_regenerate_id(true);
     include("includes/txtApp.php");
+    include("clases/cookieUtils.php");
+    $cookieU=new CookieUtils();
+    $valorCookieAI=$cookieU->get($txtApp['session']['cookieApp']);
     //include("../../clases/regLog.php");
     //$objLog=new regLog();
     //$objLog->consulta($_SESSION[$txtApp['session']['loginUsuario']],date("Y-m-d"),date("H:i:s"),$_SERVER['REMOTE_ADDR'],"ASIGNACIONES",$_SESSION[$txtApp['session']['origenSistemaUsuario']]);
@@ -49,6 +52,7 @@
 </head>
 <body>
 <input type="hidden" name="txtUsuarioActual" id="txtUsuarioActual" value="<?=$_SESSION[$txtApp['session']['loginUsuario']];?>">
+<div id="sesion" style="color:#FFF;"></div>
 <div id="contenedorPrincipal">
 	<div id="barraSuperior">
 		<div id="tituloPrincipal">Intranet IQelectronics</div>
@@ -77,9 +81,7 @@
                                 <div style=" height: 45%;margin: 10px;border: 0px solid #CCC;font-size: 12px;text-align: left;">
 				    <div style="font-size: 12px;margin: 10px;border: 1px solid #CCC;width: 240px;height: 20px;padding: 5px;">&nbsp;<a href="#" onclick="mostrarCapaVistaMensajes()" style="color: blue;text-decoration: none;">Ver Mensaje(s)</a><span id="msgNuevosUsuario"></span></div>
                                     <div style="font-size: 12px;margin: 10px;">Usuarios conectados:</div>				    
-                                    <div id="usuariosConectados" style="margin: 10px;padding:5px;background: #FFF;width: 240px;height: 80%;position: relative;overflow: auto;">
-				    
-                                    </div>
+                                    <div id="usuariosConectados" style="margin: 10px;padding:5px;background: #FFF;width: 240px;height: 80%;position: relative;overflow: auto;"></div>
                                 </div>
                             </div>    
 			</div>
@@ -110,6 +112,7 @@
 </div>
 
 <script type="text/javascript">
+    setInterval(verificaSesionUsuario,10000);
     setInterval(verificarUsuariosConectados,10000);
     setInterval(verificaMensajesNuevos,10000);
 </script>

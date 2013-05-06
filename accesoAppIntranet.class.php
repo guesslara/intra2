@@ -2,6 +2,8 @@
     include("clases/clase_mysql.php");
     include("clases/regLog.php");
     include("clases/usuarioIntranet.class.php");
+    include("clases/cookieUtils.php");
+    
     class accesoAppIntranet{
         var $usuarioAcceso;
         var $passAcceso;
@@ -32,6 +34,7 @@
                 session_start();
                 session_name($txtApp['session']['name']);				
 		session_cache_limiter('nocache,private');
+		
 		$_SESSION[$txtApp['session']['nivelUsuario']]=$valA["nivel_acceso"];				
 		$_SESSION[$txtApp['session']['loginUsuario']]=$valA["usuario"];				
 		$_SESSION[$txtApp['session']['passwordUsuario']]=$valA["pass"];				
@@ -42,12 +45,17 @@
 		$_SESSION[$txtApp['session']['cambiarPassUsuario']]=$valA["cambiarPass"];
 		$_SESSION[$txtApp['session']['sexoUsuario']]=$valA["sexo"];
 		$_SESSION[$txtApp['session']['nominaUsuario']]=$valA["nomina"];
-                $bitacora=new regLog();
+                
+		$bitacora=new regLog();
 		$estado=new usuariosIntranet();
-                $bitacora->consulta($valA["usuario"],date("Y-m-d"),date("H:i:s"),$_SERVER['REMOTE_ADDR'],"Acceso Intranet","Pantalla Principal");
+		$cookie=new CookieUtils();
+                
+		$bitacora->consulta($valA["usuario"],date("Y-m-d"),date("H:i:s"),$_SERVER['REMOTE_ADDR'],"Acceso Intranet","Pantalla Principal");
 		$estado->cambiarEstado($valA["ID"]);
-                //se envia la cookie
-                setcookie("usuarioIntranet", $valA["ID"], time()+3600);
+                
+		//se envia la cookie                
+		$cookie->set($txtApp['session']['cookieApp'],$valA["ID"],time()+600);		
+		
 		header("Location: appIntranet.php");
                 exit;
             }

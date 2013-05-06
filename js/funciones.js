@@ -62,3 +62,6 @@ function mostrarCapaVistaMensajes(){
     var usuarioMsg=$("#txtUsuarioActual").val();
     ajaxApp("contenidoAppPrincipal","funciones.php","action=verPanelMensajes&usuarioMsg="+usuarioMsg,"POST");
 }
+function verificaSesionUsuario(){
+    ajaxApp("sesion","vSesion.php","","POST");
+}
