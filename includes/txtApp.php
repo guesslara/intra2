@@ -14,8 +14,7 @@
 	$txtApp['session']['sexoUsuario'] = "sexoUsuarioAI";
 	$txtApp['session']['nominaUsuario'] = "nominaUsuarioAI";
 	//nombre de la cookie en el logIn
-	$txtApp['session']['cookieApp'] = "usuarioIntranetAI";
-	$txtApp['session']['cookieAppValor'] = "usuarioIntranetAIValor";
+	$txtApp['session']['cookieApp'] = "usuarioIntranetAI";	
 	//login de usuarios
 	$txtApp['login']['tituloAppTitle'] = "IQe. Sisco Matriz Productiva";
 	$txtApp['login']['tituloAppPrincipal'] = "IQe. Sisco - Matriz Productiva";
