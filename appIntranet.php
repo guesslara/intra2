@@ -41,6 +41,7 @@
                 $("#col1").css("height",(altoDoc-60)+"px");
                 $("#col2").css("height",(altoDoc-110)+"px");
                 $("#contenidoAppPrincipal").css("height",(altoDoc-107)+"px");
+                $("#contenidoAppPrincipal").css("width",(anchoDoc-340)+"px");
 	}
 	window.onresize = redimensionarCapas;	
 	function colocarFoto(){
@@ -72,7 +73,7 @@
 				<div id="Cursos" class="estilosEnlacesOpciones" onclick="accionesEnlaces('Cursos')">Cursos</div>
 				<div id="Directorio" class="estilosEnlacesOpciones" onclick="accionesEnlaces('Directorio')">Directorio</div>
 			    </div>
-			    <div id="contenidoAppPrincipal" style="float: left;width: 60%;border: 0px solid #FF0000;margin: 5px;overflow: auto;">
+			    <div id="contenidoAppPrincipal" style="float: left;width: 60%;border-right: 1px solid #F0F0F0;margin: 5px;overflow: auto;">
 				<? print_r($_SESSION); ?>
 			    </div>
                             <!--<div id="barraPie" style="float: left;width: 50%;">Dise&ntilde;ada por Depto. Sistemas IQelectronics 2013&copy;</div>-->
@@ -112,7 +113,7 @@
 </div>
 
 <script type="text/javascript">
-    setInterval(verificaSesionUsuario,10000);
+    setInterval(verificaSesionUsuario,1500000);
     setInterval(verificarUsuariosConectados,10000);
     setInterval(verificaMensajesNuevos,10000);
 </script>
