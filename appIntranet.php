@@ -43,7 +43,7 @@
 		$("#infoIzq").css("width","75.5%");
 		$("#infoIzq").css("height",(altoDoc-145)+"px");
 		//$("#infoDer").css("width","");
-		$("#infoDer").css("height",(anchoDoc-100)+"px");
+		$("#infoDer").css("height",(altoDoc-135)+"px");
                 $("#contenidoAppPrincipal").css("height",(altoDoc-107)+"px");
                 $("#contenidoAppPrincipal").css("width",(anchoDoc-340)+"px");
 	}
@@ -75,7 +75,26 @@
 		<div id="Cursos" class="estilosEnlacesOpciones" onclick="accionesEnlaces('Cursos')">Cursos</div>
 		<div id="Directorio" class="estilosEnlacesOpciones" onclick="accionesEnlaces('Directorio')">Directorio</div>
 	    </div>
-	    <div id="infoIzq" style="float: left;border: 1px solid #CCC;margin: 5px;width: 78%;">&nbsp;</div>
+	    <div id="infoIzq" style="float: left;border: 1px solid #CCC;margin: 5px;width: 78%;overflow: auto;">
+		<div class="estiloAppInfo">&nbsp;</div>
+		<div class="estiloAppInfo">&nbsp;</div>
+		<div class="estiloAppInfo">&nbsp;</div>
+		<div class="estiloAppInfo">&nbsp;</div>
+		<div class="estiloAppInfo">&nbsp;</div>
+		<div class="estiloAppInfo">&nbsp;</div>
+		<div class="estiloAppInfo">&nbsp;</div>
+		<div class="estiloAppInfo">&nbsp;</div>
+		<div class="estiloAppInfo">&nbsp;</div>
+		<div class="estiloAppInfo">&nbsp;</div>
+		<div class="estiloAppInfo">&nbsp;</div>
+		<div class="estiloAppInfo">&nbsp;</div>
+		<div class="estiloAppInfo">&nbsp;</div>
+		<div class="estiloAppInfo">&nbsp;</div>
+		<div class="estiloAppInfo">&nbsp;</div>
+		<div class="estiloAppInfo">&nbsp;</div>
+		<div class="estiloAppInfo">&nbsp;</div>
+		<div class="estiloAppInfo">&nbsp;</div>
+	    </div>
 	    <div id="infoDer" style="float: right;border: 1px solid #CCC;background: #e1e1e1;margin: 0; width: 23%;">
 		<div id="fotoUsuario" style="width: 250px;margin: 10px auto;height: 300px;background: #FFF;border: 1px solid #e1e1e1;"></div>
 	    </div>
