@@ -1,6 +1,6 @@
 <?php
     session_start();
-    session_regenerate_id(true);
+    //session_regenerate_id(true);
     include("includes/txtApp.php");
     include("clases/cookieUtils.php");
     $cookieUV=new CookieUtils();
