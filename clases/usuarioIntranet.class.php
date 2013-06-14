@@ -12,6 +12,37 @@
             }				
         }
         
+        public function verFormBug(){
+?>
+            <table width="100%" border="0" cellspacing="1" cellpadding="1" style="font-size: 10px;">                  
+              <tr>
+                    <td style="font-size:14px;background:#CCC;color:#000;height:25px;padding:5px;">Sisco - Feedback</td>
+              </tr>
+              <tr>
+                    <td style="padding:5px;">Sisco - Feedback permite enviar sugerencias o informes de problemas que ocurran en la aplicaci&oacute;n </td>
+              </tr>
+              <tr>
+                    <td>&nbsp;</td>
+              </tr>
+              <tr>
+                    <td style="padding:5px;">Escriba una breve descripci&oacute;n</td>
+              </tr>
+              <tr>
+                    <td>&nbsp;</td>
+              </tr>
+              <tr>
+                    <td><textarea name="txtDes" id="txtDes" cols="45" rows="5" style="width:97%;"></textarea></td>
+              </tr>
+              <tr>
+                    <td align="right">
+                            <input type="button" value="Cerrar" onclick="cerrarFormbug()" style="font-size:12px;width:130px;height:25px;border:1px solid #CCC;background:#f0f0f0;color: #000;">
+                            <input type="button" name="button" id="button" value="Enviar Informacion" onClick="enviarInfo()" style="font-size:12px;width:130px;height:25px;border:1px solid #CCC;background:#f0f0f0;color: #000;">
+                    </td>
+              </tr>
+            </table>
+<?            
+        }
+        
         public function verPanelMsg($usuarioMsg){
             //se extraen los msg
             $sqlM="SELECT * FROM mensajes WHERE destinatario='".$usuarioMsg."'";

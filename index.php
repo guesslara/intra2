@@ -50,7 +50,7 @@
 <body>
 <div id="contenedorPrincipal">
 	<div id="barraSuperior">
-		<div id="tituloPrincipal">Intranet IQelectronics</div>
+		<div id="tituloPrincipal"><?=$txtApp['login']['tituloAppPrincipal'];?></div>
 		<div id="tituloDer1">Ayuda | LogIn</div>
 	</div>
 	<div id="contenidoPrincipal">
@@ -58,11 +58,11 @@
 			<div id="erroresLogIn"><? if(isset($_GET["error"])){echo "<script type='text/javascript'> $('#erroresLogIn').show(); </script>"; echo "Error: Verifique los Datos de Acceso.";} ?></div>
 			<div id="contenedorForm">
 				<form id="frmAcceso" method="post" action="controladorLogin.php" onsubmit="return validacion1()">
-					<div id="tituloDatos">Introduzca su nombre de Usuario y Password</div>
+					<div id="tituloDatos"><?=$txtApp['login']['tituloDatosAcceso'];?></div>
 					<div id="contenedorLoginPrincipal">
 						<div id="contenedorLoginTexto">
-							<div id="texto1">Usuario:</div>
-							<div id="texto2">Password:</div>
+							<div id="texto1"><?=$txtApp['login']['tituloUsuario'];?></div>
+							<div id="texto2"><?=$txtApp['login']['tituloPass'];?></div>
 						</div>
 						<div id="contenedorLoginCajas">
 							<div id="caja1"><input type="text" name="txtCajaUsuario" id="txtCajaUsuario"></div>

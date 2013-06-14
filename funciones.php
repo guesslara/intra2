@@ -1,6 +1,9 @@
 <?php
     include("clases/usuarioIntranet.class.php");
     switch($_POST["action"]){
+        case "mostrarFormBug":
+            verFormBug();
+        break;
         case "Accesos":
             verAccesosRapidos();
         break;
@@ -31,6 +34,11 @@
         case "verPanelMensajes":
             verPanelMsg($_POST["usuarioMsg"]);
         break;
+    }
+    
+    function verFormBug(){
+        $estadoUsuario=new usuariosIntranet();
+        $estadoUsuario->verFormBug();
     }
     
     function verPanelMsg($usuarioMsg){

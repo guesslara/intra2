@@ -17,7 +17,8 @@
 	$txtApp['session']['cookieApp'] = "usuarioIntranetAI";	
 	//login de usuarios
 	$txtApp['login']['tituloAppTitle'] = "IQe. Sisco Matriz Productiva";
-	$txtApp['login']['tituloAppPrincipal'] = "IQe. Sisco - Matriz Productiva";
+	$txtApp['login']['tituloAppPrincipal'] = "Intranet IQelectronics - [ - ]";
+	$txtApp['login']['tituloDatosAcceso'] = "Introduzca su nombre de Usuario y Password";
 	$txtApp['login']['tituloUsuario'] = "Usuario:";
 	$txtApp['login']['tituloPass'] = "Password:";
 	$txtApp['login']['btnApp'] = "Entrar";

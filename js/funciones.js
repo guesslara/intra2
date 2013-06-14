@@ -7,10 +7,12 @@ function ajaxApp(divDestino,url,parametros,metodo){
     url:url,
     data:parametros,
     beforeSend:function(){ 
-            $("#cargadorGeneral").show(); 
+            //$("#cargadorGeneral").show();
+            $("#cargadorApp").show().html('<img src="img/cargador (2).gif">');
     },
     success:function(datos){ 
-            $("#cargadorGeneral").hide();
+            //$("#cargadorGeneral").hide();
+            $("#cargadorApp").show().html('Listo');
             $("#"+divDestino).show().html(datos);		
     },
     timeout:90000000,
@@ -64,4 +66,11 @@ function mostrarCapaVistaMensajes(){
 }
 function verificaSesionUsuario(){
     ajaxApp("sesion","vSesion.php","","POST");
+}
+function abrirFormBug(){
+	$("#frmContenedorBug").show();
+	ajaxApp("divFormularioBug","funciones.php","action=mostrarFormBug","POST");
+}
+function cerrarFormbug(){
+	$("#frmContenedorBug").hide	();
 }

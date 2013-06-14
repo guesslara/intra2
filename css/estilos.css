@@ -1,15 +1,15 @@
 /*estilos para /*la plantilla*/
-body{margin:0;font-family:Verdana,Serif;height:100%;width:100%;position:absolute;overflow:hidden;}
-#contenedorPrincipal{border:1px solid #666;width:99.5%;height:99%;margin:2px;}
-#barraSuperior{background:#666;background:url(../img/header-background1.png) repeat-x;border:1px solid #666;height:44px;padding5px;width:100%;color:#FFF;}
+body{margin:0;font-family:Verdana,Serif;height:100%;width:100%;position:absolute;overflow:hidden;background: #999;}
+#contenedorPrincipal{border:1px solid #666;width:99.5%;height:99%;margin:2px;background: #e1e1e1;}
+#barraSuperior{background:#666;background:url(../img/header-background1.png) repeat-x;border:1px solid #666;height:44px;/*padding:5px;*/width:100%;color:#FFF;}
 #tituloPrincipal{font-size:18px;float:left;width:auto;padding:10px;}
 #tituloDer{font-size:12px;float:right;width:auto;padding:0;}
 #tituloDer1{font-size:12px;float:right;width:auto;padding:0;margin: 10px 5px 0 0;}
 #contenidoPrincipal{margin:2px;border:1px solid #CCC;width:99.5%;height:93%;background:#F0F0F0;}
 #contenedorLogIn{float:left;width:59%;border-right:1px solid #CCC;background:#FFF;/*height:92%;*/margin:5px;}
 #contenedorLogInDer{float:right;width:38%;border:0px solid #CCC;/*background:#FFF;*/height:92%;margin:5px;text-align:center;}
-#barraPie{float:left;margin:1px 5px 2px 5px;width:98.3%;padding:5px;font-size:14px;border:1px solid #CCC;background:#FFF;height:17px;text-align:center;font-size:10px;}
-#erroresLogIn{display: none;margin:20px 5px 10px 5px;font-size:12px;color:#FF0000;height:15px;padding:15px;text-align:left;border-top:1px solid #CCC;border-bottom:1px solid #CCC;background:#F0F0F0;}
+#barraPie{float:left;margin:1px 5px 2px 5px;width:98.3%;padding:5px;font-size:14px;border-top:1px solid #333;background:#FFF;height:17px;text-align:center;font-size:10px;}
+#erroresLogIn{display: none;margin:20px 5px 10px 5px;font-size:12px;color:#333;height:15px;padding:15px;text-align:left;border-top:1px solid #FF0000;border-bottom:1px solid #FF0000;background:#F5A9A9;}
 #contenedorForm{text-align:center;}
 #contenedorLoginPrincipal{overflow: hidden;height: 200px;width: 500px;border: 1px solid #CCC;background: #FFF;margin: 20 auto 0 auto;}
 #contenedorLoginTexto{float: left;height: 186px;border: 0px solid #CCC;width: 120px;margin: 5px;}
@@ -18,14 +18,14 @@ body{margin:0;font-family:Verdana,Serif;height:100%;width:100%;position:absolute
 #texto2{margin-top: 30px;font-size: 18px;}
 #caja1{margin-top: 50px;font-size: 18px; text-align: left;margin-left: 5px;}
 #caja2{margin-top: 20px;font-size: 18px; text-align: left;margin-left: 5px;}
-#txtCajaUsuario{font-size: 22px;width: 320px;text-align: center;}
-#txtCajaPassword{font-size: 22px;width: 320px;text-align: center;}
+#txtCajaUsuario{font-size: 22px;width: 320px;text-align: center; background: #FFF;color: #333;font-weight: bold;}
+#txtCajaPassword{font-size: 22px;width: 320px;text-align: center; background: #FFF;color: #333;font-weight: bold;}
 #divBotonEntrar{height: 40px;padding: 10px;border: 0px solid #CCC;margin:10px;}
 #botonEntrar{height: 40px;width: 120px;}
 #tituloDatos{text-align: left;height: 20px;border-bottom: 1px solid #333;padding: 10px;margin:10px;}
 /********Estilos App Principal*******/
 #contenedorPrincipalApp{height: 98.3%;background: #FFF;border: 1px solid #CCC;margin: 3px;overflow: hidden;}
-#col1{border: 1px solid #CCC;margin: 5px;width: 97%;height: 98%;background: #FFF;}
+#col1{border: 0px solid #CCC;margin: 5px;width: 97%;height: 98%;background: #FFF;}
 #col2{border: 1px solid #CCC;margin: 5px;float: right;width: 300px;height: 98%;background: #f0f0f0;overflow: hidden;}
 /***Estilos para las opciones**/
 .estilosEnlacesOpciones{height: 18px;padding: 3px;width: auto;border-bottom: 0px solid #333;font-size: 12px;text-align: center;float: left;margin-left: 5px;}
@@ -57,3 +57,9 @@ body{margin:0;font-family:Verdana,Serif;height:100%;width:100%;position:absolute
 .msgListadoFechaBase{width: 160px;margin-left: 5px;height: 15px;padding: 5px;border: 0px solid #FF0000;float: left;text-align: left;}
 .btnVerMsg{margin-left: 50px;float: left;border: 1px solid #F0F0F0;height: 15px;padding: 5px;}
 .btnVerMsg:hover{background: #e1e1e1;border: 1px solid #333;cursor: pointer;}
+/*barra de estado app*/
+#contenedorBug{position:absolute; height:26px; width:120px; z-index:2000; right:6px;margin-bottom: 4px; font-weight:bold; border:0px solid #666; padding:4px;bottom:0px;}
+.estiloDivContenedor{padding:4px;width:94%; height:16px;background:#FFF;color:#000;font-weight:bold; margin:4px;border:1px solid #000;text-align:center;}
+#frmContenedorBug{position:absolute;width:400px;height:270px;right:-3px;border:1px solid #000;background:#f0f0f0;bottom:26px;display:none;font-size: 10px;}
+#divFormularioBug{background:#FFF;border:1px solid #CCC;margin:2px;width:98%;height:98%;overflow:auto;font-size: 10px;}
+.estiloCargadorApp{position: absolute;text-align: right;font-weight: bold;border: 1px solid #000;background: #CCC;height: 17px;padding: 3px;width: 120px;right: 129px;margin-top: 1px;}
