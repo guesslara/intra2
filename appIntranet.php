@@ -75,25 +75,50 @@
 		<div id="Cursos" class="estilosEnlacesOpciones" onclick="accionesEnlaces('Cursos')">Cursos</div>
 		<div id="Directorio" class="estilosEnlacesOpciones" onclick="accionesEnlaces('Directorio')">Directorio</div>
 	    </div>
-	    <div id="infoIzq" style="float: left;border: 1px solid #CCC;margin: 5px;width: 78%;overflow: auto;">
-		<div class="estiloAppInfo">&nbsp;</div>
-		<div class="estiloAppInfo">&nbsp;</div>
-		<div class="estiloAppInfo">&nbsp;</div>
-		<div class="estiloAppInfo">&nbsp;</div>
-		<div class="estiloAppInfo">&nbsp;</div>
-		<div class="estiloAppInfo">&nbsp;</div>
-		<div class="estiloAppInfo">&nbsp;</div>
-		<div class="estiloAppInfo">&nbsp;</div>
-		<div class="estiloAppInfo">&nbsp;</div>
-		<div class="estiloAppInfo">&nbsp;</div>
-		<div class="estiloAppInfo">&nbsp;</div>
-		<div class="estiloAppInfo">&nbsp;</div>
-		<div class="estiloAppInfo">&nbsp;</div>
-		<div class="estiloAppInfo">&nbsp;</div>
-		<div class="estiloAppInfo">&nbsp;</div>
-		<div class="estiloAppInfo">&nbsp;</div>
-		<div class="estiloAppInfo">&nbsp;</div>
-		<div class="estiloAppInfo">&nbsp;</div>
+	    <div id="infoIzq" style="float: left;border: 0px solid #CCC;margin: 5px;width: 78%;overflow: auto;">
+		
+		<div style="border-top: 1px solid #666;border-left: 1px solid #666;height: auto;width: 98%;margin: 20px 5px 45px 5px;">
+		    <div style="border: 1px solid #CCC;background: #f0f0f0;width: 300px;height: 20px;padding: 5px;margin: -15px 5px 15px 5px;font-size: 14px;">Titulo Tipo App</div>
+		    <div class="estiloAppInfo">
+			<div style="float: left;width: 45px;height: 45px;border: 1px solid #FF0000;margin: 11px 5px 5px 5px;">&nbsp;</div>
+			<div style="float: left;font-size: 14px;margin: 7px;color:blue;border: 0px solid #FF0000;">Titulo App</div>
+			<div style="clear: both;"></div>
+			<div style="float: left;border: 0px solid #FF0000;margin: -25px 7px 7px 63px;text-align:left;font-size: 12px;">Descripcion App</div>
+		    </div>
+		    <div class="estiloAppInfo">
+			<div style="float: left;width: 45px;height: 45px;border: 1px solid #FF0000;margin: 11px 5px 5px 5px;">&nbsp;</div>
+			<div style="float: left;font-size: 14px;margin: 7px;color:blue;border: 0px solid #FF0000;">Titulo App</div>
+			<div style="clear: both;"></div>
+			<div style="float: left;border: 0px solid #FF0000;margin: -25px 7px 7px 63px;text-align:left;font-size: 12px;">Descripcion App</div>
+		    </div>
+		</div>
+		<div style="border-top: 1px solid #666;border-left: 1px solid #666;height: auto;width: 98%;margin: 20px 5px 45px 5px;">
+		    <div style="border: 1px solid #CCC;background: #f0f0f0;width: 300px;height: 20px;padding: 5px;margin: -15px 5px 15px 5px;font-size: 14px;">Titulo Tipo App</div>
+		    <div class="estiloAppInfo">
+			<div style="float: left;width: 45px;height: 45px;border: 1px solid #FF0000;margin: 11px 5px 5px 5px;">&nbsp;</div>
+			<div style="float: left;font-size: 14px;margin: 7px;color:blue;border: 0px solid #FF0000;">Titulo App</div>
+			<div style="clear: both;"></div>
+			<div style="float: left;border: 0px solid #FF0000;margin: -25px 7px 7px 63px;text-align:left;font-size: 12px;">Descripcion App</div>
+		    </div>
+		    <div class="estiloAppInfo">
+			<div style="float: left;width: 45px;height: 45px;border: 1px solid #FF0000;margin: 11px 5px 5px 5px;">&nbsp;</div>
+			<div style="float: left;font-size: 14px;margin: 7px;color:blue;border: 0px solid #FF0000;">Titulo App</div>
+			<div style="clear: both;"></div>
+			<div style="float: left;border: 0px solid #FF0000;margin: -25px 7px 7px 63px;text-align:left;font-size: 12px;">Descripcion App</div>
+		    </div>
+		    <div class="estiloAppInfo">
+			<div style="float: left;width: 45px;height: 45px;border: 1px solid #FF0000;margin: 11px 5px 5px 5px;">&nbsp;</div>
+			<div style="float: left;font-size: 14px;margin: 7px;color:blue;border: 0px solid #FF0000;">Titulo App</div>
+			<div style="clear: both;"></div>
+			<div style="float: left;border: 0px solid #FF0000;margin: -25px 7px 7px 63px;text-align:left;font-size: 12px;">Descripcion App</div>
+		    </div>
+		    <div class="estiloAppInfo">
+			<div style="float: left;width: 45px;height: 45px;border: 1px solid #FF0000;margin: 11px 5px 5px 5px;">&nbsp;</div>
+			<div style="float: left;font-size: 14px;margin: 7px;color:blue;border: 0px solid #FF0000;">Titulo App</div>
+			<div style="clear: both;"></div>
+			<div style="float: left;border: 0px solid #FF0000;margin: -25px 7px 7px 63px;text-align:left;font-size: 12px;">Descripcion App</div>
+		    </div>		    
+		</div>		
 	    </div>
 	    <div id="infoDer" style="float: right;border: 1px solid #CCC;background: #e1e1e1;margin: 0; width: 23%;">
 		<div id="fotoUsuario" style="width: 250px;margin: 10px auto;height: 300px;background: #FFF;border: 1px solid #e1e1e1;"></div>
