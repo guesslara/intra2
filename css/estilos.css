@@ -18,8 +18,8 @@ body{margin:0;font-family:Verdana,Serif;height:100%;width:100%;position:absolute
 #texto2{margin-top: 30px;font-size: 18px;}
 #caja1{margin-top: 50px;font-size: 18px; text-align: left;margin-left: 5px;}
 #caja2{margin-top: 20px;font-size: 18px; text-align: left;margin-left: 5px;}
-#txtCajaUsuario{font-size: 22px;width: 320px;text-align: center; background: #FFF;color: #333;font-weight: bold;}
-#txtCajaPassword{font-size: 22px;width: 320px;text-align: center; background: #FFF;color: #333;font-weight: bold;}
+#txtCajaUsuario{font-size: 22px;width: 320px;text-align: center; background: #FFF;color: #333;font-weight:normal;}
+#txtCajaPassword{font-size: 22px;width: 320px;text-align: center; background: #FFF;color: #333;font-weight:normal;}
 #divBotonEntrar{height: 40px;padding: 10px;border: 0px solid #CCC;margin:10px;}
 #botonEntrar{height: 40px;width: 120px;}
 #tituloDatos{text-align: left;height: 20px;border-bottom: 1px solid #333;padding: 10px;margin:10px;}
@@ -64,5 +64,5 @@ body{margin:0;font-family:Verdana,Serif;height:100%;width:100%;position:absolute
 #divFormularioBug{background:#FFF;border:1px solid #CCC;margin:2px;width:98%;height:98%;overflow:auto;font-size: 10px;}
 .estiloCargadorApp{position: absolute;text-align: right;font-weight: bold;border: 1px solid #000;background: #CCC;height: 17px;padding: 3px;width: 120px;right: 129px;margin-top: 1px;}
 /*estilos Titulo Apps*/
-.estiloAppInfo{border-bottom: 1px solid #999;height: 70px;width: 85%;margin: 5px 5px 10px 10px;}
+.estiloAppInfo{border-bottom: 0px solid #999;height: 70px;width: 85%;margin: 5px 5px 10px 10px;}
 .estiloAppInfo:hover{border-left: 5px solid #666;cursor: pointer;}
