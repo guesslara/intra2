@@ -8,7 +8,8 @@
             verAccesosRapidos();
         break;
         case "Administrativas":
-            verAdministrativas();
+            echo"controlador";
+            
         break;
         case "Operativas":
             verOperativas();

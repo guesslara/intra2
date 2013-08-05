@@ -1,0 +1,49 @@
+DN,cn,sAMAccountName
+"CN=Administrador,CN=Users,DC=IQE,DC=local",Administrador,Administrador
+"CN=Invitado,CN=Users,DC=IQE,DC=local",Invitado,Invitado
+"CN=krbtgt,CN=Users,DC=IQE,DC=local",krbtgt,krbtgt
+"CN=Vigilancia Nave34,OU=vigilancia,DC=IQE,DC=local",Vigilancia Nave34,vigilancia34
+"CN=test 34,OU=vigilancia,DC=IQE,DC=local",test 34,tvigilancia
+"CN=Bibiana Sanchez,OU=Administrativos,DC=IQE,DC=local",Bibiana Sanchez,bsanchez
+"CN=Norma Moedano,OU=Administrativos,DC=IQE,DC=local",Norma Moedano,nmoedano
+"CN=Etiquetas Cable,OU=Cable,DC=IQE,DC=local",Etiquetas Cable,etiquetas
+"CN=Brianda Benavides,OU=Almacen,DC=IQE,DC=local",Brianda Benavides,bbenavides
+"CN=Nallely Sanchez,OU=Calidad,DC=IQE,DC=local",Nallely Sanchez,nsanchez
+"CN=almacen recibo,OU=Almacen,DC=IQE,DC=local",almacen recibo,reciboalmacen
+"CN=Empaque Cable,OU=Cable,DC=IQE,DC=local",Empaque Cable,empaque
+"CN=Diagnostico Cable,OU=Cable,DC=IQE,DC=local",Diagnostico Cable,diagnostico
+"CN=Laura Olanda,OU=Administrativos,DC=IQE,DC=local",Laura Olanda,lolanda
+"CN=Calidad Cable,OU=Calidad,DC=IQE,DC=local",Calidad Cable,calidadcable
+"CN=Leesly Zepeda,OU=Cosmetica,DC=IQE,DC=local",Leesly Zepeda,leesly
+"CN=Maricela Lopez,OU=Almacen,DC=IQE,DC=local",Maricela Lopez,capturaalmacen
+"CN=Ulises Cocom,OU=Monitores,DC=IQE,DC=local",Ulises Cocom,ucocom
+"CN=Magdalena Salinas,OU=Calidad,DC=IQE,DC=local",Magdalena Salinas,msalinas
+"CN=Alyn Bahena,OU=Compras,DC=IQE,DC=local",Alyn Bahena,abahena
+"CN=Magaly Perez,OU=Compras,DC=IQE,DC=local",Magaly Perez,mperez
+"CN=Ramon Carrillo,OU=Administrativos,DC=IQE,DC=local",Ramon Carrillo,rcarrillo
+"CN=Elsa Vega,OU=Calidad,DC=IQE,DC=local",Elsa Vega,evega
+"CN=Jose Luis Sanchez,OU=Servicios_generales,DC=IQE,DC=local",Jose Luis Sanchez,mantenimiento01
+"CN=Erika Hernandez,OU=Cosmetica,DC=IQE,DC=local",Erika Hernandez,admoncosmetica
+"CN=Miriam Juarez,OU=Servicios_generales,DC=IQE,DC=local",Miriam Juarez,mjuarez
+"CN=Veronica Olanda,OU=Compras,DC=IQE,DC=local",Veronica Olanda,volanda
+"CN=reparacion,OU=Blusens,DC=IQE,DC=local",reparacion,reparacion1
+"CN=Laura Evangelista,OU=Blusens,DC=IQE,DC=local",Laura Evangelista,callcenter
+"CN=Yanett Quiroz,OU=Administrativos,DC=IQE,DC=local",Yanett Quiroz,yquiroz
+"CN=Maria Luisa Cueto,OU=Blusens,DC=IQE,DC=local",Maria Luisa Cueto,calidadblusens
+"CN=Joaquin Ramirez,OU=Compras,DC=IQE,DC=local",Joaquin Ramirez,jramirez
+"CN=Laurita Vega,OU=Blusens,DC=IQE,DC=local",Laurita Vega,lvega
+"CN=Alejandro Moreno,OU=Calidad,DC=IQE,DC=local",Alejandro Moreno,amoreno
+"CN=Ignacio Estrada,OU=Calidad,DC=IQE,DC=local",Ignacio Estrada,iestrada
+"CN=cosmetica regional,OU=Cosmetica,DC=IQE,DC=local",cosmetica regional,cosmetica01
+"CN=Miguel Garcia,OU=Administrativos,DC=IQE,DC=local",Miguel Garcia,magarcia
+"CN=Cirilo Arellano,OU=Almacen,DC=IQE,DC=local",Cirilo Arellano,carellano
+"CN=nextel kits1,OU=Nextelkits,DC=IQE,DC=local",nextel kits1,kitsnextel1
+"CN=Fernanda Rosas,OU=Lexmark,DC=IQE,DC=local",Fernanda Rosas,frosas
+"CN=Adriana Ensastigue,OU=Almacen,DC=IQE,DC=local",Adriana Ensastigue,aensastigue
+"CN=Mauricio Menendez,OU=Monitores,DC=IQE,DC=local",Mauricio Menendez,mauricio
+"CN=Reparacion Blusens,OU=Blusens,DC=IQE,DC=local",Reparacion Blusens,reparacion002
+"CN=Viridiana Vargas,OU=Administrativos,DC=IQE,DC=local",Viridiana Vargas,vvargas
+"CN=Israel Avalos,OU=Administrativos,DC=IQE,DC=local",Israel Avalos,iavalos
+"CN=nominas rrhh,OU=Administrativos,DC=IQE,DC=local",nominas rrhh,nominas
+"CN=Calidad iqe,OU=Calidad,DC=IQE,DC=local",Calidad iqe,calidad001
+"CN=Berenice Marquez,OU=Nextel,DC=IQE,DC=local",Berenice Marquez,bmarquez

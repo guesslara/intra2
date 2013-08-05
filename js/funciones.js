@@ -28,6 +28,10 @@ function colocarFocusElemento(elemento){
     $("#"+elemento).addClass("estilosEnlacesOpcionesSeleccionado");
 }
 function accionesEnlaces(accion){
+    //alert(accion);
+    if(accion=="Administrativas"){
+	 window.open("modulos/PanelUsuarios/index.php");
+    }
     ajaxApp("contenidoAppPrincipal","funciones.php","action="+accion,"POST");
     colocarFocusElemento(accion);
 }

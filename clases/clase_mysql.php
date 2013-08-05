@@ -22,6 +22,7 @@
 			$this->Servidor=$host;
 			$this->Usuario=$user;
 			$this->Clave=$pass;
+			$this->conectar();
 		}
 		
 		/*Conexion a la base de datos*/

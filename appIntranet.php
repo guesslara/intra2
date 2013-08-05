@@ -76,7 +76,6 @@
 		<div id="Directorio" class="estilosEnlacesOpciones" onclick="accionesEnlaces('Directorio')">Directorio</div>
 	    </div>
 	    <div id="infoIzq" style="float: left;border: 0px solid #CCC;margin: 5px;width: 78%;overflow: auto;">
-		
 		<div style="border-top: 1px solid #CCC;border-left: 1px solid #CCC;height: auto;width: 98%;margin: 20px 5px 45px 5px;">
 		    <div style="border: 1px solid #CCC;background: #f0f0f0;width: 300px;height: 20px;padding: 5px;margin: -15px 5px 15px 5px;font-size: 14px;">Titulo Tipo App</div>
 		    <div class="estiloAppInfo">
