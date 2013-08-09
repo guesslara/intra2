@@ -37,7 +37,7 @@
 		    <p>Nuevo Usuario</p>
 		</div>
 		<div id="btn_2" onclick="pesta('2')" class="pesta off">
-		    <p>Usarios desde AD</p>
+		    <p>Usuarios desde AD</p>
 		</div>
 		<div id="btn_3" onclick="pesta('3')" class="pesta off">
 		    <p>Usuarios Inactivos</p>

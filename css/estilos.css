@@ -79,7 +79,13 @@ body{margin:0;font-family:Verdana,Serif;height:100%;width:100%;position:absolute
 tfoot{
     height: 10px;
 }
-caption{
+.datprin{
+    font-size: 10px;
+}
+.datprin td{
+    width: 105px;
+}
+.tablita caption{
     background: #F0F0f0;
     font-size: 12px;
     color: #49AE4C;
@@ -154,4 +160,18 @@ background-color:  #EEEEEE;
     -webkit-border-radius: 10px 10px 0px 0px; /* Google Chrome y Safari */
     border-radius: 10px 10px 0px 0px; /* CSS3 (Opera 10.5, IE 9 y estándar a ser soportado por todos los futuros navegadores) */
 }
+.error{
+    position: absolute;
+    width: 200px;
+    text-align: center;
+    padding-top: 2px;
+    box-shadow: 10px 10px 5px #CCC;
+    height: 18px;
+    z-index: 100;
+    display: none;
+    background: #F0F000;
+    font-size: 9px;
+}
+/*No permite seleccionar texto
+-moz-user-select: none; -webkit-user-select: none;*/
 

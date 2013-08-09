@@ -3,6 +3,78 @@
 
 require_once("../../clases/clase_mysql.php");
 class modeloUsuarios{
+	public function Updtprivilegios($id_usuario,$na,$cpis,$modulos){
+		require("../../includes/config.inc.php");
+		$llave=true;
+		$id_modulo=explode(",",$modulos);
+		$updt="UPDATE usuariosAcceso SET nivel_acceso='".$na."', cambiarPass='".$cpis."' WHERE id_usuario='".$id_usuario."'";
+		$DB_mysql=new DB_mysql($db,$servidor,$usuarioDb,$passDb);
+		$DB_mysql->consulta($updt);
+		$regafec=$DB_mysql->regsAfectados();
+		if($regafec!=1){$llave=false;}
+		for($i=0; $i<(count($id_modulo)-1);$i++){
+			$inser="INSERT INTO detalle_mod (id_usuario, id_modulo) VALUES ('$id_usuario','$id_modulo[$i]')";
+			$DB_mysql->consulta($inser);
+			$regafecmod=$DB_mysql->regsAfectados();	
+			if($regafecmod!=1){$llave=false;}
+		}
+		if($llave){
+			echo"Todo a Salido como Esperabamos los Privilegios han sido Configurados";
+		}else{
+			echo"Error al Ingresar Datos";
+		}
+		?><script>
+			ajaxApp("detalle_1","frm_alta.php","opcion=1","POST");
+		</script><?
+	}
+	public function UsuarioNuevo($nomina,$nombre,$apa,$sexo,$usuario,$depto,$pass,$activo){
+		require("../../includes/config.inc.php");
+		$insert="INSERT INTO usuariosAcceso (nomina, nombre, apaterno, sexo, usuario, departamento, pass, activo) VALUES ('$nomina','$nombre','$apa','$sexo','$usuario','$depto','$pass','$activo');";
+		$DB_mysql=new DB_mysql($db,$servidor,$usuarioDb,$passDb);
+		$DB_mysql->consulta($insert);
+		$ke=$DB_mysql->regsAfectados();
+		if($ke==1){
+			$ultimo="SELECT MAX(id_usuario) FROM usuariosAcceso";
+			$DB_mysql->consulta($ultimo);
+			$ultimoid=$DB_mysql->registroUnico();
+			echo"Se ha insertado un Nuevo Usuario";
+			echo"<input type='hidden' name='id_usuario' id='id_usuario' value='$ultimoid[0]' />";
+			?><script>
+				$("#privilegiosUsu").show();
+				$("#btnsDatP").hide();
+				$("#luego").show();
+			</script><?
+		}else{
+			echo"No se pudo Insertar el Usuario";
+			?><script>
+				ajaxApp("detalle_1","frm_alta.php","opcion=1","POST");
+			</script><?
+		}
+	}
+	public function verificarUsuario($usuario){
+		$consul="SELECT * FROM usuariosAcceso Where usuario='$usuario'";
+		require("../../includes/config.inc.php");
+		$DB_mysql=new DB_mysql($db,$servidor,$usuarioDb,$passDb);
+		$DB_mysql->consulta($consul);
+		$num=$DB_mysql->numregistros();
+		if($num==0){
+			?><script>
+			ubica("Checar","El usuario Puede ser Registrado!!!");
+			$("#usuario").attr("readonly","readonly");
+			$("#usuario").removeAttr("onfocus");
+			usuval=true;
+			</script><?
+			
+		}else{
+			?><script>
+			ubica("Checar","Este Usuario Ya Esta Registrado!!!");
+			$("#error").css("background","#FF0000");
+			$("#usuario").removeAttr("readonly");
+			usuval=false;
+			</script><?
+		}
+		
+	}
 	public function insertar($datos){
 		$linea=explode(",",$datos);
 		require("../../includes/config.inc.php");
@@ -10,8 +82,9 @@ class modeloUsuarios{
 		//echo"*** $num *** <br />";
 		for($j=0;$j<(count($linea)-1);$j++){
 			$datoxd=explode("_",$linea[$j]);
+			$nomape=explode(" ",$datoxd[0]);
 			$pass=$this->pass($datoxd[1]);
-			$newusu="INSERT INTO usuariosAcceso (nombre, usuario, departamento, pass) VALUES ('$datoxd[0]','$datoxd[1]','$datoxd[2]','$pass');";
+			$newusu="INSERT INTO usuariosAcceso (nombre, apaterno,  usuario, departamento, pass) VALUES ('$nomape[0]','$nomape[1]','$datoxd[1]','$datoxd[2]','$pass');";
 			$DB_mysql=new DB_mysql($db,$servidor,$usuarioDb,$passDb);
 			$DB_mysql->consulta($newusu);
 			$ke=$DB_mysql->regsAfectados();
@@ -21,7 +94,6 @@ class modeloUsuarios{
 		}
 		if($cont>0){
 			echo"Se han insertado $cont Usuarios";
-			
 		}else{
 			echo"Error al Ingresar Datos";
 		}
@@ -44,9 +116,9 @@ class modeloUsuarios{
 		<div id="tabla1" style=" height: 520px; text-align: center;">
 			<div style="height: 33px;">
 			<table class="tablita2">
-				<th>check</th>
-				<th>Nombre</th>
-				<th>Usuario</th>
+				<th style="width: 70px">check</th>
+				<th style="width: 250px">Nombre</th>
+				<th style="width: 230px">Usuario</th>
 				<th>Departamento</th>
 			</table>
 			</div>
@@ -98,10 +170,10 @@ class modeloUsuarios{
 			</div>
 		</div>
 			<div style="height: 30px; float: left; margin-left: 30px; margin-top: 5px;">
-				<input name="Todos" type="checkbox" name="tdos" id="tdos" value="1" onclick="todo('<?=$cont;?>');"/>Seleccionar todos
+				<input name="Todos" type="checkbox" name="tdos" id="tdos" value="1" onclick="todo('ck');"/>Seleccionar todos
 			</div>
 			<div id="btn" style="height: 30px; text-align: center; margin-top: 8px;">
-				<input type="button" onclick=insertar('<?=$cont;?>'); value="Insertar Registros" />
+				<input type="button" onclick="insertar('<?=$cont;?>');" value="Insertar Registros" />
 			</div>
 			<?
 		

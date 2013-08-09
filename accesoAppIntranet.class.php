@@ -19,7 +19,7 @@
             $passAcc=$this->passAcceso;
             $mysql = new DB_mysql($db,$servidor,$usuarioDb,$passDb);//se instancia la clase para la BD
             $link = $mysql->conectar();//conexion a la BD
-            $sqlA = "SELECT * FROM ".$tablaUsuario." WHERE usuario='".mysql_real_escape_string(strip_tags($usuarioAcc))."'";
+            echo $sqlA = "SELECT * FROM ".$tablaUsuario." WHERE usuario='".mysql_real_escape_string(strip_tags($usuarioAcc))."'";
             $resA = $mysql->consulta($sqlA);
             if($mysql->numregistros()==0){
                 header("Location: index.php?error=0");
@@ -38,7 +38,7 @@
 		$_SESSION[$txtApp['session']['nivelUsuario']]=$valA["nivel_acceso"];				
 		$_SESSION[$txtApp['session']['loginUsuario']]=$valA["usuario"];				
 		$_SESSION[$txtApp['session']['passwordUsuario']]=$valA["pass"];				
-		$_SESSION[$txtApp['session']['idUsuario']]=$valA["ID"];
+		$_SESSION[$txtApp['session']['idUsuario']]=$valA["id_usuario"];
 		$_SESSION[$txtApp['session']['nombreUsuario']]=$valA["nombre"];
 		$_SESSION[$txtApp['session']['apellidoUsuario']]=$valA["apaterno"];
 		$_SESSION[$txtApp['session']['origenSistemaUsuario']]=$txtApp['session']['origenSistemaUsuarioNombre'];
@@ -51,10 +51,10 @@
 		$cookie=new CookieUtils();
                 
 		$bitacora->consulta($valA["usuario"],date("Y-m-d"),date("H:i:s"),$_SERVER['REMOTE_ADDR'],"Acceso Intranet","Pantalla Principal");
-		$estado->cambiarEstado($valA["ID"]);
+		$estado->cambiarEstado($valA["id_usuario"]);
                 
 		//se envia la cookie                
-		$cookie->set($txtApp['session']['cookieApp'],$valA["ID"],time()+600);		
+		$cookie->set($txtApp['session']['cookieApp'],$valA["id_usuario"],time()+600);		
 		
 		header("Location: appIntranet.php");
                 exit;
