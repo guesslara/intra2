@@ -1,5 +1,8 @@
+var vwm=0;
 var usuval=false;
 var susu=0;
+var confirmpass=false;
+var reseteo=false;
 function ajaxApp(divDestino,url,parametros,metodo){
 	var buscador="detalleUsuarios";
 	$.ajax({
@@ -26,14 +29,140 @@ function ajaxApp(divDestino,url,parametros,metodo){
 	error:function() { $("#"+divDestino).show().html('<center>Error: El servidor no responde. <br>Por favor intente mas tarde. </center>'); }
 	});
 }
-function privilegios(lim){
-	var na=$("#na").val();
-	var id_usuario=$("#id_usuario").val();
+function explota(div){
+	//$("#"+div).toggle(1000);
+	$("#"+div).slideToggle(1000);
+}
+function remover(div){
+	$("#"+div).remove();	
+}
+function minimizar(){
+	id=$("#idUsuW").val();
+	remover('usua_'+id);
+	var div="<div id='usua_"+id+"' class='vm'><input type='hidden' name='idmin_"+id+"' id='idmin_"+id+"' value='"+id+"'/>";
+	div+="<div id='nomum_"+id+"' style='margin-top: 1px; width: 90px; float: left;'></div><div class='btns' onclick='remover(\"usua_"+id+"\");' title='Cerrar Ventana'>";
+	div+="<div style='margin: 1px;'><img src='../../img/regre.png' width=23 height=18></div></div>";
+	div+="<div class='btns' onclick='maximizar(\""+id+"\");' title='Maximizar Ventana'><div style='margin: 1px;'><img src='../../img/maxi.png' width=23 height=18></div></div></div>";
+	$("#mini").append(div);
+	esconde('bloqueo');
+	ajaxApp("nomum_"+id,"controlador.php","action=nommini&id_usuario="+id,"POST");
+}
+function maximizar(id){
+	remover('usua_'+id);
+	edita(id);
+}
+function mod(lim,num){
+	$("#btnmod"+num).hide();
+	$("#tdos"+num).removeAttr("disabled");
+	$("#cpis"+num).removeAttr("disabled");
+	$("#na"+num).removeAttr("disabled");
+	for(var y=0;y<lim;y++){
+		$("#moduloact"+num+"_"+y).removeAttr("disabled");
+	}
+	$("#btngp"+num).show();
+}
+function edita(id_usuario){	
+	caja="<input type='hidden' name='idUsuW' id='idUsuW' value='"+id_usuario+"'/>";
+	$("#dpuv").append(caja);
+	explota('bloqueo');
+	//$("#bloqueo").show();
+	pesta('7',id_usuario);
+}
+function buscaUsu(){
+	var filtro=$("input[name='filtro']:checked").val();
+	op=$("#txtbusk").val();
+	if(filtro=="" || filtro==null){
+		filtro="nombre";
+		op="";
+	}
+	parametros="action=buskUsu&op="+op+"&filtro="+filtro;
+	ajaxApp("medio","controlador.php",parametros,"POST");
+	return 1;
+}
+function pesta(nump,id_usuario){
+	esconde('error');
+	if(nump<4){
+		$("#btn_"+nump).removeClass("off").addClass("on");
+		$("#detalle_"+nump).show();
+	}else{
+		$("#btn_"+nump).removeClass("off").addClass("ono");
+		$("#cuerpoP_"+nump).show();
+	}
+	var agrega="";
+	if(id_usuario!=0){
+		agrega="&id_usuario="+id_usuario;
+	}else if($("#idUsuW").val()){
+		id_usuario=$("#idUsuW").val();
+		agrega="&id_usuario="+id_usuario;
+	}else{
+		agrega="&id_usuario=";
+	}
+	if(nump==1){
+		limpia("contesta");
+		$("#btn_2").removeClass("on").addClass("off");
+		$("#detalle_2").hide();
+		$("#btn_3").removeClass("on").addClass("off");
+		$("#detalle_3").hide();
+		ajaxApp("detalle_"+nump,"frm_alta.php","opcion="+nump+agrega,"POST");
+	}else if (nump==2){
+		limpia("contesta");
+		$("#btn_1").removeClass("on").addClass("off");
+		$("#detalle_1").hide();
+		$("#btn_3").removeClass("on").addClass("off");
+		$("#detalle_3").hide();
+	}else if (nump==3){
+		$("#btn_1").removeClass("on").addClass("off");
+		$("#detalle_1").hide();
+		$("#btn_2").removeClass("on").addClass("off");
+		$("#detalle_2").hide();
+		ajaxApp("UsuIna","controlador.php","action=UsuIna","POST");
+	}else if (nump==4){
+		$("#btn_5").removeClass("ono").addClass("off");
+		$("#cuerpoP_5").hide();
+		$("#btn_6").removeClass("ono").addClass("off");
+		$("#cuerpoP_6").hide();
+		$("#btn_7").removeClass("ono").addClass("off");
+		$("#cuerpoP_7").hide();
+		//ajaxApp("UsuIna","controlador.php","action=UsuIna","POST");
+	}else if (nump==5){
+		$("#btn_4").removeClass("ono").addClass("off");
+		$("#cuerpoP_4").hide();
+		$("#btn_6").removeClass("ono").addClass("off");
+		$("#cuerpoP_6").hide();
+		$("#btn_7").removeClass("ono").addClass("off");
+		$("#cuerpoP_7").hide();
+		ajaxApp("DatosU_"+nump,"frm_alta.php","opcion="+nump+agrega,"POST");
+	}else if (nump==6){
+		$("#btn_4").removeClass("ono").addClass("off");
+		$("#cuerpoP_4").hide();
+		$("#btn_5").removeClass("ono").addClass("off");
+		$("#cuerpoP_5").hide();
+		$("#btn_7").removeClass("ono").addClass("off");
+		$("#cuerpoP_7").hide();
+		ajaxApp("DatosU_"+nump,"frm_alta.php","opcion="+nump+agrega,"POST");
+	}else if (nump==7){
+		$("#btn_5").removeClass("ono").addClass("off");
+		$("#cuerpoP_5").hide();
+		$("#btn_6").removeClass("ono").addClass("off");
+		$("#cuerpoP_6").hide();
+		$("#btn_4").removeClass("ono").addClass("off");
+		$("#cuerpoP_4").hide();
+		ajaxApp("DatosU_"+nump,"frm_alta.php","opcion=2&"+agrega,"POST");
+	}
+}
+function privilegios(lim,num){
+	var ddv=$("#ddv"+num).val();
+	var na=$("#na"+num).val();
+	if(num!=5){
+		var id_usuario=$("#id_usuario").val();	
+	}else{
+		var id_usuario=$("#idUsuW").val();
+	}
 	var parametros="action=Updtprivilegios";
 	var cpis=0;
 	var cuen=0;
 	var modulos="";
-	if($("#cpis").is(":checked")){
+	if($("#cpis"+num).is(":checked")){
 		cpis=0;
 	}else{
 		cpis=1;
@@ -43,8 +172,8 @@ function privilegios(lim){
 		return 0;
 	}
 	for(var y=0;y<lim;y++){
-		if($("#moduloact_"+y).is(":checked")){
-			modulos+=$("#moduloact_"+y+":checked").val()+",";
+		if($("#moduloact"+num+"_"+y).is(":checked")){
+			modulos+=$("#moduloact"+num+"_"+y+":checked").val()+",";
 			cuen++;
 		}
 	}
@@ -56,66 +185,75 @@ function privilegios(lim){
 		alert("Debe elegir al menos un Modulo");
 		return 0;
 	}else if(confirm("Esta seguro de Guardar estos Privilegioso???")){
-		parametros+="&id_usuario="+id_usuario+"&na="+na+"&cpis="+cpis+"&modulos="+modulos;
+		parametros+="&id_usuario="+id_usuario+"&na="+na+"&cpis="+cpis+"&modulos="+modulos+"&ddv="+ddv;
 		ajaxApp("contesta","controlador.php",parametros,"POST");
 	}
 	return 1;
 }
-function confirmar(){
-	var cadena=$("#pass").val();
-	var confpass=$("#confpass").val();
+function confirmar(num){
+	var cadena=$("#pass"+num).val();
+	var confpass=$("#confpass"+num).val();
 	if(cadena==confpass){
-		ubica("confpass","Password Confirmado!!!");
+		ubica("confpass"+num,"Password Confirmado!!!");
 		$("#error").css("background","#80F3BD");
+		confirmpass=true;
 	}else{
-		ubica("confpass","Password Diferente :(");
+		ubica("confpass"+num,"Password Diferente :(");
+		$("#error").css("background","#F0F000");
+		confirmpass=false;
 	}
 }
 function checarmod(valor){
 	if($("#moduloact_"+valor).is(":checked")){
 		$("#moduloact_"+valor).removeAttr("checked");
 	}else{
-		$("#moduloact_"+valor).attr("checked", "checked");
+		$("#moduloact_"+valor).attr("checked","checked");
 	}
 }
-function nivel() {
-	var cont=0;
+function nivel(num) {
+	confirmpass=false;
+	$("#confpass"+num).attr("value","");
 	var minuscula = false;
 	var mayuscula = false; 
 	var numero = false;
 	var caracter = false;
-	var cadena=$("#pass").val();
+	var cadena=$("#pass"+num).val();
 	for(i=0;i<cadena.length;i++){
 		if(cadena.charCodeAt(i)>=97 && cadena.charCodeAt(i)<=122){
-			minuscula=true;cont++;
+			minuscula=true;
 		}else if(cadena.charCodeAt(i)>=65 && cadena.charCodeAt(i)<=90){  
-			mayuscula=true;cont++; 
+			mayuscula=true;
 		}else if(cadena.charCodeAt(i)>=48 && cadena.charCodeAt(i)<=57){  
-			numero=true;cont+=2;
+			numero=true;
 		}else{  
-			caracter=true;cont+=3;
+			caracter=true;
 		}
 	}
 	if(caracter==true && numero==true && minuscula==true && mayuscula==true && (cadena.length>=8)){
-		ubica("pass","Seguridad Alta!!!");
+		ubica("pass"+num,"Seguridad Alta!!!");
 		$("#error").css("background","#80F3BD");
 		return false; 
 	}else if((caracter==true || numero==true) && (minuscula==true || mayuscula==true) && (cadena.length>=8)){
-		ubica("pass","Seguridad MEDIA");
+		ubica("pass"+num,"Seguridad MEDIA");
 		$("#error").css("background","#F0F000");
 		return false; 
 	}else{
-		ubica("pass","Seguridad BAJA");
+		ubica("pass"+num,"Seguridad BAJA");
 		$("#error").css("background","#FF0000");
 		return false;
 	}
 }  
 function up(lugar){
 	limpia("contesta");
-	if(lugar=="Usuarios_Perfil"){
-		ajaxApp("detalleUsuarios","PerfilUsuario.php","lugar="+lugar,"POST");
-	}else{
+	esconde('error');
+	if(lugar=="Usuario_Gestion"){
+		ajaxApp("detalleUsuarios","GestionUsuario.php","lugar="+lugar,"POST");
+	}
+	if(lugar=="Usuario_Nuevo"){
 		ajaxApp("detalleUsuarios","AltaUsuario.php","lugar="+lugar,"POST");
+	}
+	if(lugar=="Grupo_Nuevo"){
+		ajaxApp("detalleUsuarios","PerfilGrupos.php","lugar="+lugar,"POST");
 	}
 }
 function esconde(div){
@@ -123,37 +261,43 @@ function esconde(div){
 	if(div=="error"){
 		$("#"+div).css("background","#F0F000");
 	}
+	if(div=="bloqueo"){
+		$("#dpuv").html("");
+	}
+}
+function borra(id_usuario){
+	alert(id_usuario);	
 }
 function muestra(div){
 	$("#"+div).show();
 }
-function crearusuario(op){
-	var nombre=$("#nombre").val();
-	var apa=$("#apa").val();
+function crearusuario(op,num){
+	var nombre=$("#nombre"+num).val();
+	var apa=$("#apa"+num).val();
 	var pln="";
 	if(nombre=="" || apa==""){
-		ubica("Checar","Debe llenar Primero el Nombre y Apellido!!!");
+		ubica("Checar"+num,"Debe llenar Primero el Nombre y Apellido!!!");
 		return 0;
 	}else{
 		pln=nombre[0];
 		pln=pln.toLowerCase();
 		apa=apa.toLowerCase();
 		usuario=pln+apa;
-		$("#usuario").attr("value",usuario);
+		$("#usuario"+num).attr("value",usuario);
 	}
 	if(op=="check"){
-		ajaxApp("error","controlador.php","action=verificarUsuario&usuario="+usuario,"POST");
+		ajaxApp("contesta","controlador.php","action=verificarUsuario&usuario="+usuario+"&num="+num,"POST");
 	}
 	return 1;
 }
-function actdes(){
-	if($("#activacion").is(":checked")){
-		$("#activo").hide();
-		$("#inactivo").show();
+function actdes(num){
+	if($("#activacion"+num).is(":checked")){
+		$("#activo"+num).hide();
+		$("#inactivo"+num).show();
 		susu=0;
 	}else{
-		$("#activo").show();
-		$("#inactivo").hide();
+		$("#activo"+num).show();
+		$("#inactivo"+num).hide();
 		susu=1;
 	}
 }
@@ -161,56 +305,92 @@ function ubica(element,txt){
 	var elemento = $("#"+element);
 	var dimext = elemento.outerWidth();
 	var posicion = elemento.position();
+	var otrapos = elemento.offset();
+	//alert("izqoff="+otrapos.left+" arribaoff="+otrapos.top+" izqpod="+posicion.left+" arribapos="+posicion.top+" ancho="+dimext);
 	$("#error").css({
-		"margin-left":""+(posicion.left+dimext)+"px",
-		"margin-top":""+posicion.top+"px",
+		"margin-left":""+(otrapos.left+dimext)+"px",
+		"margin-top":""+otrapos.top+"px",
 	})
 	$("#error").show();
 	$("#error").html(txt);
 }
-function checarUsuario(){
-	var usuario=$("#usuario").val();
+function checarUsuario(num){
+	var usuario=$("#usuario"+num).val();
 	if(usuario){
-		ajaxApp("error","controlador.php","action=verificarUsuario&usuario="+usuario,"POST");
+		ajaxApp("contesta","controlador.php","action=verificarUsuario&usuario="+usuario+"&num="+num,"POST");
 	}else{
-		crearusuario("check");
+		crearusuario('check',num);
 	}
 }
-function nuevoUsuario(){
+function nuevoUsuario(uoi,num){
 	limpia("contesta");
+	var id_usuario="";
 	var parametros="action=UsuarioNuevo";
-	var nomina=$("#nomina").val();
-	var nombre=$("#nombre").val();
-	var apa=$("#apa").val();
-	var sexo=$("#sexo").val();
-	var usuario=$("#usuario").val();
-	var depto=$("#depto").val();
-	var pass=$("#pass").val();
-	var manda=["nomina","nombre","apa","sexo","usuario","depto","pass"];
-	var arre=[nomina,nombre,apa,sexo,usuario,depto,pass];
+	var nomina=$("#nomina"+num).val();
+	var nombre=$("#nombre"+num).val();
+	var apa=$("#apa"+num).val();
+	var ama=$("#ama"+num).val();
+	var sexo=$("#sexo"+num).val();
+	var usuario=$("#usuario"+num).val();
+	var depto=$("#depto"+num).val();
+	var pass=$("#pass"+num).val();
+	if(uoi=="UPDATE"){
+		id_usuario="&id_usuario="+$("#id_usuarioU"+num).val();
+		usuval=true;
+		if(!reseteo && num==6){
+			confirmpass=true;
+			var arre=[nomina,nombre,apa,ama,sexo,usuario,depto];
+			var manda=["nomina","nombre","apa","ama","sexo","usuario","depto"];
+		}else if(!reseteo && num!=6){
+			confirmpass=true;
+			var arre=[nomina,ama,sexo];
+			var manda=["nomina","ama","sexo"];
+		}else if(reseteo && num==6){
+			var arre=[nomina,nombre,apa,ama,sexo,usuario,depto,pass];
+			var manda=["nomina","nombre","apa","ama","sexo","usuario","depto","pass"];
+		}else if(reseteo && num!=6){
+			var arre=[nomina,ama,sexo,pass];
+			var manda=["nomina","ama","sexo","pass"];
+		}
+	}else{
+		var arre=[nomina,nombre,apa,ama,sexo,usuario,depto,pass];
+		var manda=["nomina","nombre","apa","ama","sexo","usuario","depto","pass"];
+	}
+	
 	for(var i in arre){
 		if(arre[i].length==0){
-			ubica(manda[i],"<-- Falta llenar este Campo!!!")
+			ubica(manda[i]+num,"<--"+manda[i]+" Falta llenar este Campo!!!");
 			return 0;
 		}else{
 			parametros+="&"+manda[i]+"="+arre[i];
 		}
 	}
-	if(usuval){
+	if(usuval && confirmpass){
 		if(confirm("Esta Seguro de Guardar este Usuario???")){
 			if(susu==1){
 				if(confirm("El Usuario esta INACTIVO asi quiere Guardarlo???")){
-					ajaxApp("contesta","controlador.php",parametros+"&activo="+susu,"POST");
+					ajaxApp("contesta","controlador.php",parametros+"&activo="+susu+"&uoi="+uoi+id_usuario+"&num="+num,"POST");
 				}
 			}else{
-				ajaxApp("contesta","controlador.php",parametros+"&activo="+susu,"POST");
+				ajaxApp("contesta","controlador.php",parametros+"&activo="+susu+"&uoi="+uoi+id_usuario+"&num="+num,"POST");
 			}
 		}
 	}else{
-		alert("Revise el Usuario para ver si hay Disponibilidad");
+		if(!usuval){
+			alert("Revise el Usuario para ver si hay Disponibilidad");
+		}
+		if(!confirmpass){
+			alert("Confirme el Password");
+		}
 		return 0;
 	}
 	return 1;
+}
+function reset(num){
+	$("#passwords"+num).show();
+	$("#resetp"+num).hide();
+	reseteo=true;
+	confirmpass=false;
 }
 function insertar(lim){
 	limpia("contesta");
@@ -232,8 +412,8 @@ function insertar(lim){
 		return 1;
 	}
 }
-function todo(clase){
-	if($("#tdos").is(":checked")){
+function todo(clase,num){
+	if($("#tdos"+num).is(":checked")){
 		$("."+clase+":checkbox:not(:checked)").attr("checked", "checked");
 	}else{
 		$("."+clase+":checkbox:checked").removeAttr("checked");
@@ -241,27 +421,4 @@ function todo(clase){
 }
 function limpia(div){
 	$("#"+div).html("");
-}
-function pesta(nump){
-	limpia("contesta");
-	$("#btn_"+nump).removeClass("off").addClass("on");
-	$("#detalle_"+nump).show();
-	if(nump==1){
-		$("#btn_2").removeClass("on").addClass("off");
-		$("#detalle_2").hide();
-		$("#btn_3").removeClass("on").addClass("off");
-		$("#detalle_3").hide();
-		ajaxApp("detalle_"+nump,"frm_alta.php","opcion="+nump,"POST");
-	}else if (nump==2){
-		$("#btn_1").removeClass("on").addClass("off");
-		$("#detalle_1").hide();
-		$("#btn_3").removeClass("on").addClass("off");
-		$("#detalle_3").hide();
-	}else{
-		$("#btn_1").removeClass("on").addClass("off");
-		$("#detalle_1").hide();
-		$("#btn_2").removeClass("on").addClass("off");
-		$("#detalle_2").hide();
-		//ajaxApp("detalle_"+nump,"frm_alta.php","opcion="+nump,"POST");
-	}
 }
