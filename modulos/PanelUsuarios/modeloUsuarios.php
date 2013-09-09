@@ -2,6 +2,22 @@
 //require_once("../../includes/config.inc.php");
 require_once("../../clases/clase_mysql.php");
 class modeloUsuarios{
+	function nuevoG($nombreG,$modulos,$descripcion){
+		$modulos=substr($modulos, 0, -1); 
+		require("../../includes/config.inc.php");
+		$newgrup="INSERT INTO grupos (nombre, id_modulos, descripcion) VALUES ('$nombreG','$modulos','$descripcion');";
+		$DB_mysql=new DB_mysql($db,$servidor,$usuarioDb,$passDb);
+		$DB_mysql->consulta($newgrup);
+		$ke=$DB_mysql->regsAfectados();
+		if($ke==1){
+			echo"El Gurupo a sido Guardado";
+		}else{
+			echo"El Gurupo No se Pudo Guardar";
+		}
+		?><script>
+			ajaxApp("todo","grpoNuevo.php","","POST");
+		</script><?
+	}
 	function buskUsu($op,$filtro){
 		require("../../includes/config.inc.php");
 		$consulta="SELECT * FROM usuariosAcceso WHERE ".$filtro." LIKE '".$op."%' AND activo='0'";
@@ -45,7 +61,7 @@ class modeloUsuarios{
 		$DB_mysql=new DB_mysql($db,$servidor,$usuarioDb,$passDb);
 		$DB_mysql->consulta($inactivos);
 		while($row=mysql_fetch_row($DB_mysql->registrosConsulta())){
-			echo"$row[5]";
+			echo"$row[4]";
 		}
 	}
 	function UsuIna(){

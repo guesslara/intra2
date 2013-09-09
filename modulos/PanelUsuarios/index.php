@@ -7,17 +7,9 @@
 		echo "<script type='text/javascript'> alert('Ha intentado entrar a una zona protegida, sus datos seran ENVIADOS'); </script>";
 	}
 ?>
-<!--<script type="text/javascript" src="../../clases/jquery-1.3.2.min.js" ></script>
-<script type="text/javascript" src="js/jquery-190.js" ></script>-->
-
-
-<script src="js/jquery-ui/js/jquery-1.9.1.js"></script>
-<script src="js/jquery-ui/js/jquery-ui-1.10.3.customn.js"></script>
-<script src="js/jquery-easing.1.3.js"></script>
-
-
-
-
+<link href="js/jqueryui192/css/no-theme/jquery-ui-1.9.2.custom.css" rel="stylesheet">
+<script src="js/jqueryui192/js/jquery-1.8.3.js"></script>
+<script src="js/jqueryui192/js/jquery-ui-1.9.2.custom.js"></script>
 <script type="text/javascript"  src="js/funciones.js" ></script>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -30,11 +22,10 @@
 		altoDoc=parseInt($("#contenedorAdmin").height());
 	}
 	window.onresize=redimensionarAdmin;
-	
-	
-	
+	up('Usuario_Gestion');
+	buscaUsu();
 </script>
-<link rel="stylesheet" type="text/css" media="all" href="../../css/estilos.css" >
+<link rel="stylesheet" type="text/css" media="all" href="../../css/estilos.css" >	
 <style type="text/css">
 <!--
 html,document,body{ position:absolute;height:100%; width:100%; margin:0px; font-family: Verdana, Geneva, sans-serif; overflow:hidden; background:#999;}
@@ -115,45 +106,12 @@ body{font-family:Verdana, Geneva, sans-serif; font-size:11px;}
 				<div style="margin: 1px;"><img src="../../img/regre.png" width=23 height=18></div>
 			</div>
 			<div id="minimi" class="btns" onclick="minimizar()" title="Minimizar Ventana">
-				<div style="margin: 1px;"><img src="../../img/mini.png" width=23 height=18></div>
+				<div id="btnmini" style="margin: 1px;"><img src="../../img/mini.png" width=23 height=18></div>
 			</div>
 		</div>
 		<div id="dpuv"></div>
 		<div id="todo" style="width: 100%; height: 380px; background: #fff;">
-			<div id="pestanas" style="width: 100%; height: 40px; border-bottom: 4px solid #f0f0f0; font-size: 10px;">
-				<div id="btn_5" onclick="pesta('5','0')" class="pestits off" style="width: 110">
-					<div style="margin-top: 5px;">Usuario Accesos</div>
-				</div>
-				<div id="btn_6" onclick="pesta('6','0')" class="pestits off" style="width: 110px;">
-					<div style="margin-top: 5px;">Editar Informaci&oacute;n</div>
-				</div>
-				<div id="btn_7" onclick="pesta('7','0')" class="pestits ono" style="width: 55px;">
-					<div style="margin-top: 5px;">Perfil</div>
-				</div>
-			</div>
-			<div id="cuerpoP_7" style="width: 100%; height: 340px; background: #FFF;">
-				<div id="fotoUsuario" style="width: 250px; margin: 10px; height: 300px; background: #f0f0f0; border: 1px solid rgb(225, 225, 225); float: left;">
-					<img src="../../img/tortuga.png" width=250 height=300>
-				</div>
-				<div style="width: 300px; height: 70px; margin-right: 20px; margin-top: 10px; float: right; text-align: center;">
-					<p class="titulo">PERFIL</p>
-				</div>
-				<div id="DatosU_7" style="position: absolute;width: 300px; height: 200px; top: 50%; left: 50%; margin-top: -28px; margin-left: -20px;"></div>
-			</div>
-			<div id="cuerpoP_6" style="display: none; width: 100%; height: 340px; background: #FFF;">
-				<div id="fotoUsuario" style="width: 250px; margin: 10px; height: 300px; background: #f0f0f0; border: 1px solid rgb(225, 225, 225); float: left;">
-					<img src="../../img/tortuga.png" width=250 height=300>
-				</div>
-				<div id="DatosU_6" style="position: absolute;width: 300px; height: 300px; top: 50%; left: 50%; margin-top: -125px; margin-left: -20px;"></div>
-			</div>
-			<div id="cuerpoP_5" style="display: none; width: 100%; height: 340px; background: #FFF;">
-				<div id="DatosU_5" style="width: 100%; height: 100%;"></div>
-			</div>
-			<div id="cuerpoP_4" style="display: none; width: 100%; height: 340px; background: #FFF;">
-				4<div id="fotoUsuario" style="width: 250px; margin: 10px; height: 300px; background: #f0f0f0; border: 1px solid rgb(225, 225, 225); float: left;"></div>
-				<div style="width: 300px; height: 70px; margin-right: 20px; margin-top: 10px; float: right; background: #f0f0f0;"></div>
-				<div id="DatosU_4" style="position: absolute;width: 300px; height: 200px; background: #F0F0F0; top: 50%; left: 50%; margin-top: -28px; margin-left: -20px;"></div>
-			</div>
+			<!--aki va lo de la vtnaPerfil.php-->
 		</div>
 	</div>
 </div>

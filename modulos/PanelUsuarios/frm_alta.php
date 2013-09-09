@@ -152,7 +152,6 @@
 			<?}?>
 		    </td>
 		</tr>
-	    
 		<tr>
 		    <td>Usuario:</td>
 		    <td>

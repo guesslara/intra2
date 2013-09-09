@@ -9,6 +9,14 @@ function limpiar($contenido)
         return $contenido;
 }
 switch ($ac){
+	case "nuevoG":
+		require_once("modeloUsuarios.php");
+		$nombreG=limpiar($_POST["nombreG"]);
+		$modulos=limpiar($_POST["modulos"]);
+		$descripcion=limpiar($_POST["descripcion"]);
+		$modeloUsuarios=new modeloUsuarios();
+		$modeloUsuarios->nuevoG($nombreG,$modulos,$descripcion);
+	break;
 	case "nommini":
 		require_once("modeloUsuarios.php");
 		$id_usuario=limpiar($_POST["id_usuario"]);

@@ -3,6 +3,7 @@ var usuval=false;
 var susu=0;
 var confirmpass=false;
 var reseteo=false;
+
 function ajaxApp(divDestino,url,parametros,metodo){
 	var buscador="detalleUsuarios";
 	$.ajax({
@@ -29,9 +30,54 @@ function ajaxApp(divDestino,url,parametros,metodo){
 	error:function() { $("#"+divDestino).show().html('<center>Error: El servidor no responde. <br>Por favor intente mas tarde. </center>'); }
 	});
 }
+function add(){
+	var pagAct=parseInt($("#pagAct").val());
+	var limite=$("#limite").val();
+	var paginasT=$("#tp").val();
+	ajaxApp("pnlGroup","mod.php","pagAct="+(pagAct+1)+"&intervalo="+limite+"&totalpag="+paginasT,"POST");
+}
+function att(){
+	var pagAct=parseInt($("#pagAct").val());
+	var limite=$("#limite").val();
+	var idLote=$("#idLote").val();
+	var paginasT=$("#tp").val();
+	var limreg=$("#limreg").val();
+	nvolimite=limite-(limreg*2);
+	parametros="pagAct="+(pagAct-1)+"&intervalo="+(nvolimite)+"&totalpag="+paginasT;
+	ajaxApp("pnlGroup","mod.php","pagAct="+(pagAct-1)+"&intervalo="+(nvolimite)+"&totalpag="+paginasT,"POST");
+}
+function pagdirect(num){
+	alert("aki"+num);
+}
+function newGroup(lim){
+	nombreg=$("#nomgrupnew").val();
+	descripcion=$("#descNG").val();
+	var modulos="";
+	var cuen=0;
+	if(nombreg==""){
+		alert("Debe colocar Nombre al nuevo Grupo");
+		return 0;
+	}
+	if(descripcion==""){
+		alert("Debe colocar una Descripción al Grupo");
+		return 0;
+	}
+	for(var y=0;y<lim;y++){
+		if($("#modulogrup_"+y).is(":checked")){
+			modulos+=$("#modulogrup_"+y+":checked").val()+",";
+			cuen++;
+		}
+	}
+	if(cuen==0){
+		alert("Debe elegir al menos un Modulo");
+		return 0;
+	}
+	//alert("nombre="+nombreg+" modulos="+modulos);
+	ajaxApp("contesta","controlador.php","action=nuevoG&nombreG="+nombreg+"&modulos="+modulos+"&descripcion="+descripcion,"POST");
+	return 1;
+}
 function explota(div){
-	//$("#"+div).toggle(1000);
-	$("#"+div).slideToggle(1000);
+	$("#"+div).slideToggle(900);
 }
 function remover(div){
 	$("#"+div).remove();	
@@ -49,6 +95,15 @@ function minimizar(){
 }
 function maximizar(id){
 	remover('usua_'+id);
+	$("#VentanaPerfil").css({
+		"width":"600px",
+		"margin-left":"-300px",
+	})
+	$("#minimi").attr({
+		Onclick: "minimizar()",
+		title: "Minimizar Ventana",
+	});
+	$("#btnmini").show();
 	edita(id);
 }
 function mod(lim,num){
@@ -65,7 +120,16 @@ function edita(id_usuario){
 	caja="<input type='hidden' name='idUsuW' id='idUsuW' value='"+id_usuario+"'/>";
 	$("#dpuv").append(caja);
 	explota('bloqueo');
-	//$("#bloqueo").show();
+	$("#VentanaPerfil").css({
+		"width":"600px",
+		"margin-left":"-300px",
+	})
+	$("#minimi").attr({
+		Onclick: "minimizar()",
+		title: "Minimizar Ventana",
+	});
+	$("#btnmini").show();
+	ajaxApp("todo","vtnaPerfil.php","","POST");
 	pesta('7',id_usuario);
 }
 function buscaUsu(){
@@ -253,7 +317,24 @@ function up(lugar){
 		ajaxApp("detalleUsuarios","AltaUsuario.php","lugar="+lugar,"POST");
 	}
 	if(lugar=="Grupo_Nuevo"){
+		explota('bloqueo');
+		$("#VentanaPerfil").css({
+			"width":"800px",
+			"margin-left":"-400px",
+		})
+		$("#minimi").attr({
+			Onclick: "",
+			title: "",
+		});
+		$("#btnmini").hide();
+		ajaxApp("todo","grpoNuevo.php","","POST");
+	}
+	if(lugar=="Grupo_Gestion"){
 		ajaxApp("detalleUsuarios","PerfilGrupos.php","lugar="+lugar,"POST");
+		$( "#accordion" ).accordion({
+			"fillSpace": true,
+			"active": 1
+		});
 	}
 }
 function esconde(div){
@@ -413,10 +494,16 @@ function insertar(lim){
 	}
 }
 function todo(clase,num){
+	//alert(clase+"**"+num);
 	if($("#tdos"+num).is(":checked")){
-		$("."+clase+":checkbox:not(:checked)").attr("checked", "checked");
+	//	alert("if");
+		$("."+clase).attr("checked", "checked");
+		//$("."+clase+":checkbox:not(:checked)").attr("checked", "checked");
+	//	alert("ter if");
 	}else{
+	//	alert("else");
 		$("."+clase+":checkbox:checked").removeAttr("checked");
+	//	alert("sal else");
 	}
 }
 function limpia(div){
