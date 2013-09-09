@@ -1,7 +1,7 @@
 <?php
 $servidor = "localhost";
-$usuarioDb = "root";
-$passDb = "xampp";
+$usuarioDb = "desarrollo";
+$passDb = "desarrollo";
 $db = "2013_iqe_intranet";
 $tablaUsuario = "usuariosAcceso";
 ?>
