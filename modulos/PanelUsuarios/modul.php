@@ -1,7 +1,7 @@
 <?//print_r($_POST);?>
 <script type="text/javascript">
    $(document).ready(function() {
-		$( "#accordion" ).accordion({
+		$( "#accordion2" ).accordion({
 			"fillSpace": true,
 			"active": 0,
 		});
@@ -86,7 +86,7 @@ if($paginasT==0 && $intervalo==0){
       <div id="sig" style="float: right;" onclick="add()"><div style="margin: 1px;"><img src="../../img/sig.png" width=23 height=23></div></div>
    </div>
 </div>
-<div id="accordion" style="margin: 0 auto; height: 500px; width: 300px; ">
+<div id="accordion2" style="margin: 0 auto; height: 500px; width: 300px; ">
 <?
    while($row=mysql_fetch_row($DB_mysql->registrosConsulta())){
 ?>

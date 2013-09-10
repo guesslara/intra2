@@ -3,7 +3,6 @@ var usuval=false;
 var susu=0;
 var confirmpass=false;
 var reseteo=false;
-
 function ajaxApp(divDestino,url,parametros,metodo){
 	var buscador="detalleUsuarios";
 	$.ajax({
@@ -30,6 +29,64 @@ function ajaxApp(divDestino,url,parametros,metodo){
 	error:function() { $("#"+divDestino).show().html('<center>Error: El servidor no responde. <br>Por favor intente mas tarde. </center>'); }
 	});
 }
+function cambio(op){
+	/*var active = $( "#accordion" ).accordion( "option", "active" );
+	alert("p= "+active);*/
+	if(op==1){
+		$("#EpnlUsu").animate({
+			"width" : "188px",
+		},"slow", function() {
+			// Animation complete.
+			$("#EpnlUsu").css("background","#f0f0f0");
+			$("#buskusG").hide();
+			$("#btnAU").show();
+			$("#pnlUsu").animate({
+				opacity : 0.01,
+			},"slow")
+		});
+		$("#pnlMod").animate({
+			"width" : "400px",
+		},"slow", function() {
+			// Animation complete.
+			$("#pnlMod").css("background","#fff");
+			$("#btnMM").hide();
+			$("#otro").show();
+			$("#pnlModE").animate({
+				opacity : 1,
+			},"slow")
+		});
+	}else{
+		$("#pnlMod").animate({
+			"width" : "188px",
+		},"slow", function() {
+			// Animation complete.
+			$("#pnlMod").css("background","#f0f0f0");
+			$("#otro").hide();
+			$("#btnMM").show();
+			$("#pnlModE").animate({
+				opacity : 0.01,
+			},"slow")
+		});
+		$("#EpnlUsu").animate({
+			"width" : "400px",
+		},"slow", function() {
+			// Animation complete.
+			$("#EpnlUsu").css("background","#fff");
+			$("#btnAU").hide();
+			$("#buskusG").show();
+			$("#pnlUsu").animate({
+				opacity : 1,
+			},"slow")
+		});
+	}
+}
+function crece(){
+	$("#n").css("font-size","12px");
+}
+function buscaUsuP(){
+	var nombre=$("#busknom").val();
+	ajaxApp("pnlUsu","usu.php","nombre="+nombre,"POST");
+}
 function add(){
 	var pagAct=parseInt($("#pagAct").val());
 	var limite=$("#limite").val();
@@ -39,7 +96,6 @@ function add(){
 function att(){
 	var pagAct=parseInt($("#pagAct").val());
 	var limite=$("#limite").val();
-	var idLote=$("#idLote").val();
 	var paginasT=$("#tp").val();
 	var limreg=$("#limreg").val();
 	nvolimite=limite-(limreg*2);
@@ -47,7 +103,12 @@ function att(){
 	ajaxApp("pnlGroup","mod.php","pagAct="+(pagAct-1)+"&intervalo="+(nvolimite)+"&totalpag="+paginasT,"POST");
 }
 function pagdirect(num){
-	alert("aki"+num);
+	var pagAct=parseInt($("#pagAct").val());
+	var limite=$("#limite").val();
+	var paginasT=$("#tp").val();
+	var limreg=$("#limreg").val();
+	nvolimite=(num*limreg)-limreg;
+	ajaxApp("pnlGroup","mod.php","pagAct="+num+"&intervalo="+nvolimite+"&totalpag="+paginasT,"POST");
 }
 function newGroup(lim){
 	nombreg=$("#nomgrupnew").val();
