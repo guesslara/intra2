@@ -17,15 +17,8 @@
 <!--<link rel="stylesheet" type="text/css" href="../../css/estilos.css" >
 <!--<script type="text/javascript"  src="js/funciones.js" ></script>-->
 <script type="text/javascript">
-    ajaxApp("pnlGroup","gpos.php","pagAct=1&intervalo=0&totalpag=0","POST");
-    ajaxApp("pnlUsu","usu.php","nombre=","POST");
-    ajaxApp("pnlModE","modul.php","pagAct=1&intervalo=0&totalpag=0","POST");
-    /*$(document).ready(function() {
-	$( "#accordion" ).accordion({
-	    "fillSpace": true,
-	    "active": 1
-	});
-    });*/
+    ajaxApp("pnlGroup","gpos.php","pagAct=1&intervalo=0&totalpag=0&lado=A","POST");
+    ajaxApp("pnlUsu","usuMod.php","usuarios=1&nombre=","POST");
 </script>
 
 <div id="encabezado" style="height: 150px; width: 1000px; float: left; background-image: url('../../img/flecha.png'); background-repeat: no-repeat; background-position: 20px 30px;">
@@ -53,7 +46,7 @@
     <div id="pnlMod" style="width: 188px; height: 100%; background: #f0f0f0; float: left; border-right: 1px solid #A0ABA0;">
 	<div id="arriba" style="width: 100%; height: 30px;">
 	    <div id="otro" style="width: 100%; text-align: center; height: 30px; display: none;">
-	        Buscar: <input type="text" id="busknom" name="busknom" class="btn_chi" onkeyup="">
+	        Buscar: <input type="text" id="ModE" name="ModE" class="btn_chi" onkeyup="buscaUsuP('ModE');"/>
 	    </div>
 	    <div id="btnMM" style="width: 100%; text-align: center; height: 30px;">
 		<input type="button" id="cambio" value="Modificar Modulos" name="cambio" onclick="cambio('1')"/>
@@ -65,7 +58,7 @@
     <div id="EpnlUsu" style="width: 400px; height: 580px; background: #fff; float: right; border-left: 1px solid #A0ABA0;">
 	<div id="arriba" style="width: 100%; height: 30px;">
 	    <div id="buskusG" style="width: 100%; text-align: center; height: 30px;">
-	        Buscar: <input type="text" id="busknom" name="busknom" class="btn_chi" onkeyup="buscaUsuP();">
+	        Buscar: <input type="text" id="Usu" name="Usu" class="btn_chi" onkeyup="buscaUsuP('Usu');">
 	    </div>
 	    <div id="btnAU" style="width: 100%; text-align: center; height: 30px; display: none;">
 		<input type="button" id="cambioU" value="Agregar Usuarios" name="cambioU" onclick="cambio('2')"/>

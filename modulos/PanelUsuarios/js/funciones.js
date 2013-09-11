@@ -55,6 +55,8 @@ function cambio(op){
 				opacity : 1,
 			},"slow")
 		});
+		ajaxApp("pnlModE","usuMod.php","usuarios=2&nombre=","POST");
+		ajaxApp("pnlGroup","gpos.php","pagAct=1&intervalo=0&totalpag=0&lado=B","POST");
 	}else{
 		$("#pnlMod").animate({
 			"width" : "188px",
@@ -78,37 +80,44 @@ function cambio(op){
 				opacity : 1,
 			},"slow")
 		});
+		ajaxApp("pnlGroup","gpos.php","pagAct=1&intervalo=0&totalpag=0&lado=A","POST");
 	}
 }
 function crece(){
 	$("#n").css("font-size","12px");
 }
-function buscaUsuP(){
-	var nombre=$("#busknom").val();
-	ajaxApp("pnlUsu","usu.php","nombre="+nombre,"POST");
+function buscaUsuP(cual){
+	var nombre=$("#"+cual).val();
+	//alert(nombre);
+	if(cual=="Usu"){
+		var op=1;
+	}else{
+		var op=2;
+	}
+	ajaxApp("pnl"+cual,"usuMod.php","usuarios="+op+"&nombre="+nombre,"POST");
 }
-function add(){
+function add(lado){
 	var pagAct=parseInt($("#pagAct").val());
 	var limite=$("#limite").val();
 	var paginasT=$("#tp").val();
-	ajaxApp("pnlGroup","mod.php","pagAct="+(pagAct+1)+"&intervalo="+limite+"&totalpag="+paginasT,"POST");
+	ajaxApp("pnlGroup","gpos.php","pagAct="+(pagAct+1)+"&intervalo="+limite+"&totalpag="+paginasT+"&lado="+lado,"POST");
 }
-function att(){
+function att(lado){
 	var pagAct=parseInt($("#pagAct").val());
 	var limite=$("#limite").val();
 	var paginasT=$("#tp").val();
 	var limreg=$("#limreg").val();
 	nvolimite=limite-(limreg*2);
 	parametros="pagAct="+(pagAct-1)+"&intervalo="+(nvolimite)+"&totalpag="+paginasT;
-	ajaxApp("pnlGroup","mod.php","pagAct="+(pagAct-1)+"&intervalo="+(nvolimite)+"&totalpag="+paginasT,"POST");
+	ajaxApp("pnlGroup","gpos.php","pagAct="+(pagAct-1)+"&intervalo="+(nvolimite)+"&totalpag="+paginasT+"&lado="+lado,"POST");
 }
-function pagdirect(num){
+function pagdirect(num, lado){
 	var pagAct=parseInt($("#pagAct").val());
 	var limite=$("#limite").val();
 	var paginasT=$("#tp").val();
 	var limreg=$("#limreg").val();
 	nvolimite=(num*limreg)-limreg;
-	ajaxApp("pnlGroup","mod.php","pagAct="+num+"&intervalo="+nvolimite+"&totalpag="+paginasT,"POST");
+	ajaxApp("pnlGroup","gpos.php","pagAct="+num+"&intervalo="+nvolimite+"&totalpag="+paginasT+"&lado="+lado,"POST");
 }
 function newGroup(lim){
 	nombreg=$("#nomgrupnew").val();
