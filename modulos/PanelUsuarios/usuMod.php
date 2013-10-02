@@ -19,7 +19,8 @@ while($row=mysql_fetch_row($DB_mysql->registrosConsulta())){
 ?>
    <div style="height: 20px; border: 1px solid #f0f0f0;">
       <div style="float: left;"><?=$row[1]." ".$row[3]." - ( ".$row[2]." )";?></div>
-      <div style="margin: 1px; float: right;"><img src="../../img/mas.png" width=23 height=18></div>
+      <div style="margin: 1px; float: right;" onclick="mas();"><img src="../../img/mas.png" width=23 height=18></div>
+      <input type="hidden" id="idADel" name="idADel" value="<?=;?>"/>
    </div>
 <?
 }
